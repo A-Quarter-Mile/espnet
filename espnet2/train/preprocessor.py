@@ -955,6 +955,7 @@ class SVSPreprocessor(AbsPreprocessor):
         train: bool,
         token_type: str = None,
         token_list: Union[Path, str, Iterable[str]] = None,
+        syb_token_list: Union[Path, str, Iterable[str]] = None,
         bpemodel: Union[Path, str, Iterable[str]] = None,
         text_cleaner: Collection[str] = None,
         g2p_type: str = None,
@@ -971,10 +972,14 @@ class SVSPreprocessor(AbsPreprocessor):
         time_shift: np.int32 = 0.0125,
         align: list = [
             "singing",
-            "label_lab",
-            "midi_lab",
-            "tempo_lab",
-            "beat_lab",
+            "label_xml",
+            "midi_xml",
+            "tempo_xml",
+            "beat_xml",
+            #"label_lab",
+            #"midi_lab",
+            #"tempo_lab",
+            #"beat_lab",
         ],  # TODO(Tao): add to args
         phn_seg: dict = {
             1: [1],
@@ -1009,6 +1014,10 @@ class SVSPreprocessor(AbsPreprocessor):
             )
             self.token_id_converter = TokenIDConverter(
                 token_list=token_list,
+                unk_symbol=unk_symbol,
+            )
+            self.token_syb_id_converter = TokenIDConverter(
+                token_list=syb_token_list,
                 unk_symbol=unk_symbol,
             )
         else:
@@ -1049,6 +1058,13 @@ class SVSPreprocessor(AbsPreprocessor):
             xml_timeseq = []
             phn_cnt = 0
             sp = []
+            syb_list = []
+            syb_seq = np.zeros((len(syllables)))
+            syb_num_seq = np.zeros((len(syllables)))
+            midi_syb = np.zeros((len(syllables)))
+            beat_syb = np.zeros((len(syllables)))
+            #beat_note = np.zeros((lab_len))
+            pre_vowel = ""
             for i in range(len(syllables)):
                 # NOTE: Some phonemes are tagged differently
                 phn = self.tokenizer.text2tokens_svs(syllables[i])
@@ -1056,18 +1072,37 @@ class SVSPreprocessor(AbsPreprocessor):
                 phn_num = len(phn)
                 if syllables[i] == "":  # multi note in one syllable
                     phn_num = 1
+                    syb_seq[i] = self.token_syb_id_converter.tokens2ids([pre_vowel])[0]
+                else:
+                    syb_seq[i] = self.token_syb_id_converter.tokens2ids(["_".join(phn)])[0]
+                    pre_vowel = phn[-1]
+                syb_num_seq[i] = phn_num
+                midi_syb[i] = notemidis[i]
                 phn_cnt += phn_num
                 for _ in range(phn_num):
                     midis.append(notemidis[i])
                 st = notetimeseq[i][0]
                 dur = notetimeseq[i][1] - notetimeseq[i][0]
+                beat_syb[i] = int(dur / self.time_shift + 0.5)
                 for k in range(phn_num):
                     et = notetimeseq[i][0] + dur * self.phn_seg[phn_num][k]
                     xml_timeseq.append([st, et])
+                    #beat_note[i + k] = int(dur / self.time_shift + 0.5)
                     st = et
             assert phn_cnt == lab_len
             data.pop(self.midi_name)
 
+            syb_seq.astype(np.int64)
+            syb_num_seq.astype(np.int64)
+            midi_syb.astype(np.int64)
+            beat_syb.astype(np.int64)
+            #beat_note.astype(np.int64)
+            data["syllable"] = syb_seq
+            data["syllable_num"] = syb_num_seq
+            data["midi_syb"] = midi_syb
+            data["beat_syb"] = beat_syb
+            #data["beat_note"] = beat_note
+   
             # Calculate feature according to label time sequence
             timeseq = lab_timeseq
             nsamples = int((timeseq[-1][1] - timeseq[0][0]) * self.fs)

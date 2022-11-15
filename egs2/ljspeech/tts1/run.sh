@@ -21,7 +21,7 @@ train_set=tr_no_dev
 valid_set=dev
 test_sets="dev eval1"
 
-train_config=conf/train.yaml
+train_config=conf/train_fastspeech.yaml
 inference_config=conf/decode.yaml
 
 # g2p=g2p_en # Include word separator
@@ -29,6 +29,8 @@ g2p=g2p_en_no_space # Include no word separator
 
 ./tts.sh \
     --lang en \
+    --stage 0 \
+    --stop_stage 6 \
     --feats_type raw \
     --fs "${fs}" \
     --n_fft "${n_fft}" \

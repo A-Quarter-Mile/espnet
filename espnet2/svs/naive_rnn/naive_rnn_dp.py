@@ -37,6 +37,7 @@ class NaiveRNNDP(AbsSVS):
         idim: int,
         midi_dim: int,
         tempo_dim: int,
+        syb_dim: int,
         odim: int,
         embed_dim: int = 512,
         eprenet_conv_layers: int = 3,
@@ -77,7 +78,7 @@ class NaiveRNNDP(AbsSVS):
         """
         assert check_argument_types()
         super().__init__()
-
+        #idim = syb_dim
         # store hyperparameters
         self.idim = idim
         self.midi_dim = midi_dim
@@ -296,6 +297,18 @@ class NaiveRNNDP(AbsSVS):
         beat_lab_lengths: Optional[torch.Tensor] = None,
         beat_xml: Optional[torch.Tensor] = None,
         beat_xml_lengths: Optional[torch.Tensor] = None,
+        # ALF
+        syllable: Optional[torch.Tensor] = None,
+        syllable_num: Optional[torch.Tensor] = None,
+        syllable_lengths: Optional[torch.Tensor] = None,
+        midi_syb: Optional[torch.Tensor] = None,
+        midi_syb_lengths: Optional[torch.Tensor] = None,
+        beat_syb: Optional[torch.Tensor] = None,
+        beat_syb_lengths: Optional[torch.Tensor] = None,
+        beat_note: Optional[torch.Tensor] = None,
+        ds_syb: Optional[torch.Tensor] = None,
+        ds_syb_lengths: Optional[torch.Tensor] = None,
+        ds_xml: Optional[torch.Tensor] = None,
         spembs: Optional[torch.Tensor] = None,
         sids: Optional[torch.Tensor] = None,
         lids: Optional[torch.Tensor] = None,
@@ -328,9 +341,15 @@ class NaiveRNNDP(AbsSVS):
         """
         label = label_xml
         midi = midi_xml
-        tempo = beat_xml
+        tempo = beat_note
         label_lengths = label_xml_lengths
         midi_lengths = midi_xml_lengths
+        #ds = ds_xml
+        #label = syllable
+        #midi = midi_syb
+        #tempo = beat_syb
+        #label_lengths = syllable_lengths
+       # midi_lengths = midi_syb_lengths
 
         text = text[:, : text_lengths.max()]  # for data-parallel
         feats = feats[:, : feats_lengths.max()]  # for data-parallel
@@ -450,6 +469,15 @@ class NaiveRNNDP(AbsSVS):
         tempo_xml: Optional[torch.Tensor] = None,
         beat_lab: Optional[torch.Tensor] = None,
         beat_xml: Optional[torch.Tensor] = None,
+        syllable: Optional[torch.Tensor] = None,
+        syllable_num: Optional[torch.Tensor] = None,
+        syllable_lengths: Optional[torch.Tensor] = None,
+        label_xml_lengths: Optional[torch.Tensor] = None,
+        midi_syb: Optional[torch.Tensor] = None,
+        beat_syb: Optional[torch.Tensor] = None,
+        beat_note: Optional[torch.Tensor] = None,
+        ds_syb: Optional[torch.Tensor] = None,
+        ds_xml: Optional[torch.Tensor] = None,
         spembs: Optional[torch.Tensor] = None,
         sids: Optional[torch.Tensor] = None,
         lids: Optional[torch.Tensor] = None,
@@ -471,7 +499,11 @@ class NaiveRNNDP(AbsSVS):
         """
         label = label_xml
         midi = midi_xml
-        tempo = beat_xml
+        tempo = beat_note
+        #ds = ds_xml
+        #label = syllable#label_xml
+        #midi = midi_syb#midi_xml
+        #tempo = beat_syb#beat_xml
 
         label_emb = self.encoder_input_layer(label)  # FIX ME: label Float to Int
         midi_emb = self.midi_encoder_input_layer(midi)

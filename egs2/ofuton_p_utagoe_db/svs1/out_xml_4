@@ -1,0 +1,346 @@
+2022-10-17T09:20:54 (svs.sh:205:main) ./svs.sh --lang jp --stage 6 --stop_stage 9 --local_data_opts --stage 0 --feats_type raw --pitch_extract None --fs 24000 --fmax 7600 --fmin 80 --n_fft 2048 --n_shift 300 --win_length 1200 --token_type phn --g2p pyopenjtalk --cleaner none --train_config conf/tuning/train_naive_rnn_dp_alf.yaml --inference_config conf/decode.yaml --train_set tr_no_dev --valid_set dev --test_sets dev eval --score_feats_extract syllable_score_feats --srctexts data/tr_no_dev/text --svs_exp exp/rnn-dp-alf_beat_xml_4 --audio_format wav --vocoder_file /data1/wyn/Mus_data/vocoder/train_nodev_ofuton_hifigan.v1/checkpoint-300000steps.pkl
+2022-10-17T09:20:55 (svs.sh:647:main) Stage 6: SVS Training: train_set=dump/raw/tr_no_dev, valid_set=dump/raw/dev
+2022-10-17T09:20:55 (svs.sh:843:main) Generate 'exp/rnn-dp-alf_beat_xml_4/run.sh'. You can resume the process from stage 6 using this script
+2022-10-17T09:20:55 (svs.sh:848:main) SVS training started... log: 'exp/rnn-dp-alf_beat_xml_4/train.log'
+2022-10-17 09:20:55,624 (launch:94) INFO: /root/anaconda3/envs/espnet/bin/python3 /data1/wyn/espnet/espnet2/bin/launch.py --cmd 'run.pl --name exp/rnn-dp-alf_beat_xml_4/train.log' --log exp/rnn-dp-alf_beat_xml_4/train.log --ngpu 1 --num_nodes 1 --init_file_prefix exp/rnn-dp-alf_beat_xml_4/.dist_init_ --multiprocessing_distributed true -- python3 -m espnet2.bin.svs_train --use_preprocessor true --token_type phn --token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt --syb_token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt_syb --non_linguistic_symbols none --cleaner none --g2p pyopenjtalk --normalize global_mvn --resume true --init_param --ignore_init_mismatch false --fold_length 150 --fold_length 240000 --output_dir exp/rnn-dp-alf_beat_xml_4 --config conf/tuning/train_naive_rnn_dp_alf.yaml --score_feats_extract syllable_score_feats --score_feats_extract_conf fs=24000 --score_feats_extract_conf n_fft=2048 --score_feats_extract_conf win_length=1200 --score_feats_extract_conf hop_length=300 --feats_extract fbank --feats_extract_conf n_fft=2048 --feats_extract_conf hop_length=300 --feats_extract_conf win_length=1200 --pitch_extract None --feats_extract_conf fs=24000 --feats_extract_conf fmin=80 --feats_extract_conf fmax=7600 --feats_extract_conf n_mels=80 --train_data_path_and_name_and_type dump/raw/tr_no_dev/text,text,text --train_data_path_and_name_and_type dump/raw/tr_no_dev/wav.scp,singing,sound --train_data_path_and_name_and_type dump/raw/tr_no_dev/label,label,duration --train_data_path_and_name_and_type dump/raw/tr_no_dev/xml.scp,midi,midi --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/text_shape.phn --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/singing_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/durations_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/score_shape --valid_data_path_and_name_and_type dump/raw/dev/text,text,text --valid_data_path_and_name_and_type dump/raw/dev/wav.scp,singing,sound --valid_data_path_and_name_and_type dump/raw/dev/label,label,duration --valid_data_path_and_name_and_type dump/raw/dev/xml.scp,midi,midi --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/text_shape.phn --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/singing_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/durations_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/score_shape --normalize_conf stats_file=exp/svs_stats_raw_phn_pyopenjtalk_jp/train/feats_stats.npz
+2022-10-17 09:20:55,671 (launch:348) INFO: log file: exp/rnn-dp-alf_beat_xml_4/train.log
+2022-10-17T16:54:27 (svs.sh:888:main) Stage 7: Decoding: training_dir=exp/rnn-dp-alf_beat_xml_4
+2022-10-17T16:54:27 (svs.sh:928:main) Generate 'exp/rnn-dp-alf_beat_xml_4/decode_latest/run.sh'. You can resume the process from stage 7 using this script
+2022-10-17T16:54:27 (svs.sh:983:main) Decoding started... log: 'exp/rnn-dp-alf_beat_xml_4/decode_latest/dev/log/svs_inference.*.log'
+2022-10-17T16:55:02 (svs.sh:983:main) Decoding started... log: 'exp/rnn-dp-alf_beat_xml_4/decode_latest/eval/log/svs_inference.*.log'
+2022-10-17T16:55:36 (svs.sh:1038:main) Stage 8: Scoring
+2022-10-17T16:55:36 (svs.sh:1047:main) Begin Scoring for MCD metrics on dev, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/dev/MCD_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:55:38,148 (evaluate_mcd:287) INFO: The number of utterances = 64
+2022-10-17 16:55:39,433 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0000 7.0910
+2022-10-17 16:55:40,407 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0014 6.1715
+2022-10-17 16:55:40,516 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0001 6.3911
+2022-10-17 16:55:40,815 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0006 6.4052
+2022-10-17 16:55:40,894 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0008 5.3194
+2022-10-17 16:55:40,926 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0000 6.4931
+2022-10-17 16:55:40,989 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0002 7.0744
+2022-10-17 16:55:41,037 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0015 6.3841
+2022-10-17 16:55:41,069 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0008 5.8689
+2022-10-17 16:55:41,127 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0012 6.3710
+2022-10-17 16:55:41,161 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0004 7.0833
+2022-10-17 16:55:41,164 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0010 6.7366
+2022-10-17 16:55:41,284 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0004 5.8550
+2022-10-17 16:55:41,448 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0006 6.2567
+2022-10-17 16:55:41,893 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0010 7.3358
+2022-10-17 16:55:41,964 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0002 6.1914
+2022-10-17 16:55:42,302 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0016 6.8172
+2022-10-17 16:55:42,318 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0005 7.0910
+2022-10-17 16:55:42,420 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0007 5.4382
+2022-10-17 16:55:43,013 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0008 5.3546
+2022-10-17 16:55:43,165 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0002 5.6833
+2022-10-17 16:55:43,389 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0006 6.3071
+2022-10-17 16:55:43,643 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0004 7.1320
+2022-10-17 16:55:43,655 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0000 7.1417
+2022-10-17 16:55:43,695 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0007 5.7156
+2022-10-17 16:55:43,800 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0003 6.5460
+2022-10-17 16:55:43,818 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0009 6.6265
+2022-10-17 16:55:43,854 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0013 6.7623
+2022-10-17 16:55:43,856 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0001 5.6659
+2022-10-17 16:55:43,883 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0009 6.1174
+2022-10-17 16:55:43,922 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0005 5.8821
+2022-10-17 16:55:43,939 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0011 6.1049
+2022-10-17 16:55:43,953 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0011 5.9194
+2022-10-17 16:55:44,243 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0009 6.1994
+2022-10-17 16:55:45,323 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0012 5.4415
+2022-10-17 16:55:45,433 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0003 6.2854
+2022-10-17 16:55:45,759 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0017 7.2644
+2022-10-17 16:55:45,848 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0003 4.9637
+2022-10-17 16:55:46,043 (evaluate_mcd:171) INFO: ofuton_0000000000haruyo_koi_0007 5.7431
+2022-10-17 16:55:46,280 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0002 6.1783
+2022-10-17 16:55:46,284 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0010 5.9063
+2022-10-17 16:55:46,396 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0000 5.5499
+2022-10-17 16:55:46,413 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0008 5.7617
+2022-10-17 16:55:46,463 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0006 6.1677
+2022-10-17 16:55:46,469 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0014 6.5167
+2022-10-17 16:55:46,472 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0004 5.7380
+2022-10-17 16:55:46,959 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0004 6.3176
+2022-10-17 16:55:47,117 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0013 5.7838
+2022-10-17 16:55:47,476 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0000 6.1896
+2022-10-17 16:55:48,561 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0005 5.7816
+2022-10-17 16:55:48,568 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0007 5.6660
+2022-10-17 16:55:48,736 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0015 6.1532
+2022-10-17 16:55:48,801 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0003 6.2512
+2022-10-17 16:55:48,853 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0001 5.8952
+2022-10-17 16:55:48,871 (evaluate_mcd:171) INFO: ofuton_00000000000000momiji_0011 5.4998
+2022-10-17 16:55:48,897 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0009 5.6917
+2022-10-17 16:55:48,962 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0005 6.6948
+2022-10-17 16:55:48,987 (evaluate_mcd:171) INFO: ofuton_00000tetsudou_shouka_0005 5.6533
+2022-10-17 16:55:49,066 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0001 6.4400
+2022-10-17 16:55:50,318 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_3_2_0001 5.6807
+2022-10-17 16:55:53,191 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0006 7.6454
+2022-10-17 16:55:53,402 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0002 6.9095
+2022-10-17 16:55:57,076 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0003 7.1274
+2022-10-17 16:55:57,135 (evaluate_mcd:171) INFO: ofuton_000000000000chatsumi_0007 8.5915
+2022-10-17 16:55:57,152 (evaluate_mcd:310) INFO: Average: 6.2660 ± 0.6461
+2022-10-17 16:55:57,161 (evaluate_mcd:327) INFO: Successfully finished MCD evaluation.
+2022-10-17T16:55:57 (svs.sh:1056:main) Begin Scoring for F0 related metrics on dev, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/dev/F0_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:55:58,547 (evaluate_f0:298) INFO: The number of utterances = 64
+2022-10-17 16:56:02,010 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0000 0.3039
+2022-10-17 16:56:03,806 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0014 0.0569
+2022-10-17 16:56:04,586 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0001 0.0657
+2022-10-17 16:56:05,180 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0004 0.0682
+2022-10-17 16:56:05,324 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0015 0.0552
+2022-10-17 16:56:05,372 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0008 0.0578
+2022-10-17 16:56:05,904 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0012 0.1866
+2022-10-17 16:56:05,988 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0000 0.0886
+2022-10-17 16:56:06,063 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0008 0.1567
+2022-10-17 16:56:06,112 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0002 0.1492
+2022-10-17 16:56:06,261 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0010 0.1201
+2022-10-17 16:56:06,353 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0006 0.0602
+2022-10-17 16:56:06,372 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0004 0.0617
+2022-10-17 16:56:06,845 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0006 0.1216
+2022-10-17 16:56:07,382 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0010 0.3217
+2022-10-17 16:56:08,055 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0002 0.1297
+2022-10-17 16:56:08,407 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0016 0.0417
+2022-10-17 16:56:09,005 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0005 0.3923
+2022-10-17 16:56:09,273 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0007 0.1515
+2022-10-17 16:56:10,615 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0008 0.0721
+2022-10-17 16:56:11,568 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0006 0.0629
+2022-10-17 16:56:11,862 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0002 0.1890
+2022-10-17 16:56:12,186 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0011 0.0947
+2022-10-17 16:56:12,521 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0005 0.0760
+2022-10-17 16:56:13,103 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0009 0.0411
+2022-10-17 16:56:13,174 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0013 0.0738
+2022-10-17 16:56:13,495 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0001 0.0324
+2022-10-17 16:56:13,551 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0000 0.0543
+2022-10-17 16:56:13,622 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0003 0.1618
+2022-10-17 16:56:13,635 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0011 0.0781
+2022-10-17 16:56:13,770 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0009 0.0664
+2022-10-17 16:56:13,777 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0009 0.1475
+2022-10-17 16:56:13,810 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0007 0.0554
+2022-10-17 16:56:13,815 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0004 0.1873
+2022-10-17 16:56:15,739 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0012 0.0687
+2022-10-17 16:56:16,457 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0003 0.0388
+2022-10-17 16:56:17,570 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0017 0.4356
+2022-10-17 16:56:18,930 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0007 0.0432
+2022-10-17 16:56:19,124 (evaluate_f0:170) INFO: ofuton_0000000000haruyo_koi_0003 0.1626
+2022-10-17 16:56:19,135 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0010 0.0486
+2022-10-17 16:56:19,438 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0006 0.0962
+2022-10-17 16:56:19,816 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0002 0.0595
+2022-10-17 16:56:19,984 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0013 0.0921
+2022-10-17 16:56:20,018 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0014 0.0550
+2022-10-17 16:56:20,179 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0004 0.0493
+2022-10-17 16:56:20,471 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0000 0.1925
+2022-10-17 16:56:20,623 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0004 0.0621
+2022-10-17 16:56:20,991 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0008 0.1300
+2022-10-17 16:56:22,556 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0000 0.1897
+2022-10-17 16:56:24,022 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0005 0.0606
+2022-10-17 16:56:24,803 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0007 0.0609
+2022-10-17 16:56:25,767 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0011 0.1382
+2022-10-17 16:56:26,033 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0015 0.0870
+2022-10-17 16:56:26,539 (evaluate_f0:170) INFO: ofuton_00000000000000momiji_0003 0.0577
+2022-10-17 16:56:26,993 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0001 0.1092
+2022-10-17 16:56:27,194 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0005 0.0674
+2022-10-17 16:56:27,342 (evaluate_f0:170) INFO: ofuton_00000tetsudou_shouka_0009 0.0588
+2022-10-17 16:56:27,417 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0001 0.1149
+2022-10-17 16:56:27,461 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0005 0.0860
+2022-10-17 16:56:29,711 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_3_2_0001 0.0918
+2022-10-17 16:56:38,414 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0002 0.1729
+2022-10-17 16:56:38,928 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0006 0.1221
+2022-10-17 16:56:46,768 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0003 0.1227
+2022-10-17 16:56:49,227 (evaluate_f0:170) INFO: ofuton_000000000000chatsumi_0007 0.0619
+2022-10-17 16:56:49,250 (evaluate_f0:323) INFO: Average: 0.1112 ± 0.0799
+2022-10-17 16:56:49,258 (evaluate_f0:340) INFO: Successfully finished log-F0 RMSE evaluation.
+2022-10-17T16:56:49 (svs.sh:1065:main) Begin Scoring for SEMITONE related metrics on dev, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/dev/SEMITONE_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:56:50,654 (evaluate_semitone:311) INFO: The number of utterances = 64
+2022-10-17 16:57:42,208 (evaluate_semitone:335) INFO: Average - Semitone_ACC: 62.70%
+2022-10-17 16:57:42,217 (evaluate_semitone:352) INFO: Successfully finished semitone ACC evaluation.
+2022-10-17T16:57:42 (svs.sh:1074:main) Begin Scoring for VUV related metrics on dev, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/dev/VUV_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:57:43,624 (evaluate_vuv:302) INFO: The number of utterances = 64
+2022-10-17 16:58:33,836 (evaluate_vuv:324) INFO: Average - VUV_ERROR: 2.55%
+2022-10-17 16:58:33,846 (evaluate_vuv:341) INFO: Successfully finished VUV error evaluation.
+2022-10-17T16:58:34 (svs.sh:1047:main) Begin Scoring for MCD metrics on eval, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/eval/MCD_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:58:35,228 (evaluate_mcd:287) INFO: The number of utterances = 70
+2022-10-17 16:58:35,916 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0001 6.8610
+2022-10-17 16:58:35,983 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0009 5.7105
+2022-10-17 16:58:36,299 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0005 5.8185
+2022-10-17 16:58:36,745 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0010 5.3924
+2022-10-17 16:58:36,831 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0002 5.8286
+2022-10-17 16:58:37,457 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0015 7.1547
+2022-10-17 16:58:37,558 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0005 6.6857
+2022-10-17 16:58:37,660 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0000 7.3943
+2022-10-17 16:58:37,679 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0013 6.5340
+2022-10-17 16:58:37,791 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0003 5.5507
+2022-10-17 16:58:38,056 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0005 5.7042
+2022-10-17 16:58:38,087 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0005 6.0072
+2022-10-17 16:58:38,181 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0009 5.8999
+2022-10-17 16:58:38,245 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0000 6.2941
+2022-10-17 16:58:38,246 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0001 5.9092
+2022-10-17 16:58:38,278 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0014 7.9460
+2022-10-17 16:58:38,850 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0009 8.8957
+2022-10-17 16:58:39,020 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0001 7.0036
+2022-10-17 16:58:39,077 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0005 7.2922
+2022-10-17 16:58:39,119 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0006 6.3726
+2022-10-17 16:58:39,148 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0004 6.9943
+2022-10-17 16:58:39,285 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0016 6.3967
+2022-10-17 16:58:39,380 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0006 5.6445
+2022-10-17 16:58:39,509 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0015 7.5772
+2022-10-17 16:58:39,559 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0011 5.9009
+2022-10-17 16:58:39,638 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0001 5.4986
+2022-10-17 16:58:39,743 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0010 5.8854
+2022-10-17 16:58:40,123 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0006 5.3293
+2022-10-17 16:58:40,628 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0006 6.1271
+2022-10-17 16:58:40,721 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0010 5.7620
+2022-10-17 16:58:40,729 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0007 5.7635
+2022-10-17 16:58:40,770 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0006 6.1515
+2022-10-17 16:58:40,865 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0001 5.7051
+2022-10-17 16:58:40,879 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0002 6.1492
+2022-10-17 16:58:41,086 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0010 6.8240
+2022-10-17 16:58:41,372 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0007 6.4713
+2022-10-17 16:58:41,573 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0007 6.4195
+2022-10-17 16:58:41,785 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0011 7.6859
+2022-10-17 16:58:42,049 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0008 8.0608
+2022-10-17 16:58:42,195 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0008 6.0880
+2022-10-17 16:58:42,517 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0011 6.6448
+2022-10-17 16:58:42,712 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0002 6.9392
+2022-10-17 16:58:43,039 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0000 6.9428
+2022-10-17 16:58:43,101 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0016 7.2148
+2022-10-17 16:58:43,133 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0007 5.8317
+2022-10-17 16:58:43,161 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0008 6.1563
+2022-10-17 16:58:43,265 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0007 5.8916
+2022-10-17 16:58:43,455 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0002 5.8190
+2022-10-17 16:58:43,461 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0011 6.8091
+2022-10-17 16:58:43,551 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0012 6.5287
+2022-10-17 16:58:43,600 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0003 5.4617
+2022-10-17 16:58:43,602 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0017 6.1955
+2022-10-17 16:58:43,633 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0002 6.5084
+2022-10-17 16:58:44,282 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0012 6.1641
+2022-10-17 16:58:44,737 (evaluate_mcd:171) INFO: ofuton_00000antagata_dokosa_0000 6.6091
+2022-10-17 16:58:45,535 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0013 6.2913
+2022-10-17 16:58:45,559 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0008 5.4286
+2022-10-17 16:58:45,570 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0018 7.1971
+2022-10-17 16:58:45,571 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0003 6.3908
+2022-10-17 16:58:45,639 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0008 5.7803
+2022-10-17 16:58:45,908 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0003 5.9055
+2022-10-17 16:58:45,910 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0003 7.2018
+2022-10-17 16:58:45,989 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0004 5.4764
+2022-10-17 16:58:46,883 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0009 6.3213
+2022-10-17 16:58:47,194 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0014 6.5051
+2022-10-17 16:58:47,413 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0004 5.9461
+2022-10-17 16:58:47,432 (evaluate_mcd:171) INFO: ofuton_000000000000furusato_0019 5.9633
+2022-10-17 16:58:47,730 (evaluate_mcd:171) INFO: ofuton_00000000usagito_kame_0000 6.3591
+2022-10-17 16:58:48,092 (evaluate_mcd:171) INFO: ofuton_00000000000momotarou_0004 6.0981
+2022-10-17 16:58:49,030 (evaluate_mcd:171) INFO: ofuton_my_grandfathers_clock_1_2_0004 7.8631
+2022-10-17 16:58:49,051 (evaluate_mcd:310) INFO: Average: 6.3876 ± 0.7221
+2022-10-17 16:58:49,061 (evaluate_mcd:327) INFO: Successfully finished MCD evaluation.
+2022-10-17T16:58:49 (svs.sh:1056:main) Begin Scoring for F0 related metrics on eval, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/eval/F0_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:58:50,422 (evaluate_f0:298) INFO: The number of utterances = 70
+2022-10-17 16:58:52,191 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0009 0.1142
+2022-10-17 16:58:52,250 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0001 0.0679
+2022-10-17 16:58:52,632 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0005 0.0815
+2022-10-17 16:58:54,101 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0010 0.1192
+2022-10-17 16:58:54,665 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0002 0.0567
+2022-10-17 16:58:55,303 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0015 0.1551
+2022-10-17 16:58:55,503 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0005 0.1560
+2022-10-17 16:58:55,525 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0000 0.1651
+2022-10-17 16:58:55,906 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0013 0.1174
+2022-10-17 16:58:56,993 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0003 0.0508
+2022-10-17 16:58:57,346 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0014 0.1513
+2022-10-17 16:58:57,618 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0001 0.0735
+2022-10-17 16:58:57,733 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0000 0.1294
+2022-10-17 16:58:57,749 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0005 0.0958
+2022-10-17 16:58:57,971 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0005 0.1946
+2022-10-17 16:58:58,164 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0009 0.1122
+2022-10-17 16:58:59,146 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0009 0.2114
+2022-10-17 16:58:59,433 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0005 0.2333
+2022-10-17 16:58:59,445 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0001 0.1762
+2022-10-17 16:58:59,456 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0016 0.0500
+2022-10-17 16:58:59,768 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0001 0.0412
+2022-10-17 16:58:59,947 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0006 0.0894
+2022-10-17 16:58:59,949 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0006 0.1167
+2022-10-17 16:59:00,355 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0004 0.1261
+2022-10-17 16:59:00,369 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0015 0.0770
+2022-10-17 16:59:01,047 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0010 0.1673
+2022-10-17 16:59:01,733 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0011 0.0859
+2022-10-17 16:59:01,972 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0006 0.0432
+2022-10-17 16:59:03,423 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0007 0.0701
+2022-10-17 16:59:03,907 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0010 0.1093
+2022-10-17 16:59:04,145 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0002 0.0441
+2022-10-17 16:59:04,429 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0006 0.1198
+2022-10-17 16:59:04,465 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0007 0.1077
+2022-10-17 16:59:04,508 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0001 0.1181
+2022-10-17 16:59:05,087 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0006 0.0696
+2022-10-17 16:59:05,351 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0010 0.1630
+2022-10-17 16:59:05,699 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0011 0.0601
+2022-10-17 16:59:06,648 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0008 0.0314
+2022-10-17 16:59:07,247 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0007 0.2210
+2022-10-17 16:59:07,349 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0011 0.0897
+2022-10-17 16:59:08,324 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0002 0.0298
+2022-10-17 16:59:08,709 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0008 0.0449
+2022-10-17 16:59:08,727 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0008 0.1663
+2022-10-17 16:59:09,324 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0016 0.3510
+2022-10-17 16:59:09,529 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0002 0.1596
+2022-10-17 16:59:09,918 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0012 0.0498
+2022-10-17 16:59:10,046 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0017 0.0610
+2022-10-17 16:59:10,808 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0000 0.0891
+2022-10-17 16:59:10,937 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0007 0.1290
+2022-10-17 16:59:11,532 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0012 0.1305
+2022-10-17 16:59:11,668 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0002 0.1138
+2022-10-17 16:59:11,732 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0003 0.0654
+2022-10-17 16:59:12,270 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0007 0.0912
+2022-10-17 16:59:12,745 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0011 0.0576
+2022-10-17 16:59:13,810 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0003 0.1207
+2022-10-17 16:59:14,399 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0013 0.0673
+2022-10-17 16:59:14,658 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0018 0.0852
+2022-10-17 16:59:15,814 (evaluate_f0:170) INFO: ofuton_00000antagata_dokosa_0000 0.1107
+2022-10-17 16:59:16,915 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0003 0.2212
+2022-10-17 16:59:17,173 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0008 0.1477
+2022-10-17 16:59:18,019 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0003 0.0734
+2022-10-17 16:59:18,081 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0004 0.0684
+2022-10-17 16:59:18,087 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0004 0.0894
+2022-10-17 16:59:18,186 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0009 0.0925
+2022-10-17 16:59:18,344 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0014 0.0791
+2022-10-17 16:59:18,418 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0008 0.0552
+2022-10-17 16:59:18,969 (evaluate_f0:170) INFO: ofuton_000000000000furusato_0019 0.0513
+2022-10-17 16:59:22,641 (evaluate_f0:170) INFO: ofuton_00000000usagito_kame_0000 0.0837
+2022-10-17 16:59:23,532 (evaluate_f0:170) INFO: ofuton_00000000000momotarou_0004 0.1392
+2022-10-17 16:59:24,340 (evaluate_f0:170) INFO: ofuton_my_grandfathers_clock_1_2_0004 0.1719
+2022-10-17 16:59:24,365 (evaluate_f0:323) INFO: Average: 0.1094 ± 0.0569
+2022-10-17 16:59:24,374 (evaluate_f0:340) INFO: Successfully finished log-F0 RMSE evaluation.
+2022-10-17T16:59:24 (svs.sh:1065:main) Begin Scoring for SEMITONE related metrics on eval, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/eval/SEMITONE_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 16:59:25,799 (evaluate_semitone:311) INFO: The number of utterances = 70
+2022-10-17 16:59:59,822 (evaluate_semitone:335) INFO: Average - Semitone_ACC: 59.80%
+2022-10-17 16:59:59,831 (evaluate_semitone:352) INFO: Successfully finished semitone ACC evaluation.
+2022-10-17T17:00:00 (svs.sh:1074:main) Begin Scoring for VUV related metrics on eval, results are written under exp/rnn-dp-alf_beat_xml_4/decode_latest/eval/VUV_res
+/root/anaconda3/envs/espnet/lib/python3.7/site-packages/requests/__init__.py:104: RequestsDependencyWarning: urllib3 (1.26.9) or chardet (5.0.0)/charset_normalizer (2.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+2022-10-17 17:00:01,201 (evaluate_vuv:302) INFO: The number of utterances = 70
+2022-10-17 17:00:35,146 (evaluate_vuv:324) INFO: Average - VUV_ERROR: 2.72%
+2022-10-17 17:00:35,155 (evaluate_vuv:341) INFO: Successfully finished VUV error evaluation.
+2022-10-17T17:00:35 (svs.sh:1090:main) Stage 9: Pack model: exp/rnn-dp-alf_beat_xml_4/rnn-dp-alf_beat_xml_4_latest.zip
+adding: meta.yaml
+adding: exp/rnn-dp-alf_beat_xml_4/config.yaml
+adding: exp/rnn-dp-alf_beat_xml_4/800epoch.pth
+adding: exp/rnn-dp-alf_beat_xml_4/images
+adding: exp/rnn-dp-alf_beat_xml_4/images/optim0_lr0.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/seg_loss.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/duration_loss.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/forward_time.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/optim_step_time.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/iter_time.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/train_time.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/backward_time.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/gpu_max_cached_mem_GB.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/l1_loss.png
+adding: exp/rnn-dp-alf_beat_xml_4/images/loss.png
+adding: exp/svs_stats_raw_phn_pyopenjtalk_jp/train/feats_stats.npz
+Generate: exp/rnn-dp-alf_beat_xml_4/rnn-dp-alf_beat_xml_4_latest.zip
+2022-10-17T17:00:36 (svs.sh:1128:main) Successfully finished. [elapsed=27582s]

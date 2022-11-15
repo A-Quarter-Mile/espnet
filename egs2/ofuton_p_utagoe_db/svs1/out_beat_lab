@@ -1,0 +1,1021 @@
+2022-10-15T10:01:30 (svs.sh:205:main) ./svs.sh --lang jp --stage 6 --stop_stage 6 --local_data_opts --stage 0 --feats_type raw --pitch_extract None --fs 24000 --fmax 7600 --fmin 80 --n_fft 2048 --n_shift 300 --win_length 1200 --token_type phn --g2p pyopenjtalk --cleaner none --train_config conf/tuning/train_naive_rnn_dp_alf.yaml --inference_config conf/decode.yaml --train_set tr_no_dev --valid_set dev --test_sets dev eval --score_feats_extract syllable_score_feats --srctexts data/tr_no_dev/text --svs_exp exp/rnn-dp-alf-beat_lab_2 --audio_format wav
+2022-10-15T10:01:30 (svs.sh:647:main) Stage 6: SVS Training: train_set=dump/raw/tr_no_dev, valid_set=dump/raw/dev
+2022-10-15T10:01:30 (svs.sh:843:main) Generate 'exp/rnn-dp-alf-beat_lab_2/run.sh'. You can resume the process from stage 6 using this script
+2022-10-15T10:01:30 (svs.sh:848:main) SVS training started... log: 'exp/rnn-dp-alf-beat_lab_2/train.log'
+2022-10-15 10:01:31,307 (launch:94) INFO: /root/anaconda3/envs/espnet/bin/python3 /data1/wyn/espnet/espnet2/bin/launch.py --cmd 'run.pl --name exp/rnn-dp-alf-beat_lab_2/train.log' --log exp/rnn-dp-alf-beat_lab_2/train.log --ngpu 1 --num_nodes 1 --init_file_prefix exp/rnn-dp-alf-beat_lab_2/.dist_init_ --multiprocessing_distributed true -- python3 -m espnet2.bin.svs_train --use_preprocessor true --token_type phn --token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt --syb_token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt_syb --non_linguistic_symbols none --cleaner none --g2p pyopenjtalk --normalize global_mvn --resume true --init_param --ignore_init_mismatch false --fold_length 150 --fold_length 240000 --output_dir exp/rnn-dp-alf-beat_lab_2 --config conf/tuning/train_naive_rnn_dp_alf.yaml --score_feats_extract syllable_score_feats --score_feats_extract_conf fs=24000 --score_feats_extract_conf n_fft=2048 --score_feats_extract_conf win_length=1200 --score_feats_extract_conf hop_length=300 --feats_extract fbank --feats_extract_conf n_fft=2048 --feats_extract_conf hop_length=300 --feats_extract_conf win_length=1200 --pitch_extract None --feats_extract_conf fs=24000 --feats_extract_conf fmin=80 --feats_extract_conf fmax=7600 --feats_extract_conf n_mels=80 --train_data_path_and_name_and_type dump/raw/tr_no_dev/text,text,text --train_data_path_and_name_and_type dump/raw/tr_no_dev/wav.scp,singing,sound --train_data_path_and_name_and_type dump/raw/tr_no_dev/label,label,duration --train_data_path_and_name_and_type dump/raw/tr_no_dev/xml.scp,midi,midi --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/text_shape.phn --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/singing_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/durations_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/score_shape --valid_data_path_and_name_and_type dump/raw/dev/text,text,text --valid_data_path_and_name_and_type dump/raw/dev/wav.scp,singing,sound --valid_data_path_and_name_and_type dump/raw/dev/label,label,duration --valid_data_path_and_name_and_type dump/raw/dev/xml.scp,midi,midi --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/text_shape.phn --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/singing_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/durations_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/score_shape --normalize_conf stats_file=exp/svs_stats_raw_phn_pyopenjtalk_jp/train/feats_stats.npz
+2022-10-15 10:01:31,354 (launch:348) INFO: log file: exp/rnn-dp-alf-beat_lab_2/train.log
+bash: line 1: 27804 Killed                  ( python3 -m espnet2.bin.svs_train --use_preprocessor true --token_type phn --token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt --syb_token_list data/token_list/phn_pyopenjtalk_jp/tokens.txt_syb --non_linguistic_symbols none --cleaner none --g2p pyopenjtalk --normalize global_mvn --resume true --init_param --ignore_init_mismatch false --fold_length 150 --fold_length 240000 --output_dir exp/rnn-dp-alf-beat_lab_2 --config conf/tuning/train_naive_rnn_dp_alf.yaml --score_feats_extract syllable_score_feats --score_feats_extract_conf fs=24000 --score_feats_extract_conf n_fft=2048 --score_feats_extract_conf win_length=1200 --score_feats_extract_conf hop_length=300 --feats_extract fbank --feats_extract_conf n_fft=2048 --feats_extract_conf hop_length=300 --feats_extract_conf win_length=1200 --pitch_extract None --feats_extract_conf fs=24000 --feats_extract_conf fmin=80 --feats_extract_conf fmax=7600 --feats_extract_conf n_mels=80 --train_data_path_and_name_and_type dump/raw/tr_no_dev/text,text,text --train_data_path_and_name_and_type dump/raw/tr_no_dev/wav.scp,singing,sound --train_data_path_and_name_and_type dump/raw/tr_no_dev/label,label,duration --train_data_path_and_name_and_type dump/raw/tr_no_dev/xml.scp,midi,midi --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/text_shape.phn --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/singing_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/durations_shape --train_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/train/score_shape --valid_data_path_and_name_and_type dump/raw/dev/text,text,text --valid_data_path_and_name_and_type dump/raw/dev/wav.scp,singing,sound --valid_data_path_and_name_and_type dump/raw/dev/label,label,duration --valid_data_path_and_name_and_type dump/raw/dev/xml.scp,midi,midi --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/text_shape.phn --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/singing_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/durations_shape --valid_shape_file exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/score_shape --normalize_conf stats_file=exp/svs_stats_raw_phn_pyopenjtalk_jp/train/feats_stats.npz --ngpu 1 --multiprocessing_distributed True ) 2>> exp/rnn-dp-alf-beat_lab_2/train.log >> exp/rnn-dp-alf-beat_lab_2/train.log
+run.pl: job failed, log is in exp/rnn-dp-alf-beat_lab_2/train.log
+Command '['run.pl', '--name', 'exp/rnn-dp-alf-beat_lab_2/train.log', '--gpu', '1', 'exp/rnn-dp-alf-beat_lab_2/train.log', 'python3', '-m', 'espnet2.bin.svs_train', '--use_preprocessor', 'true', '--token_type', 'phn', '--token_list', 'data/token_list/phn_pyopenjtalk_jp/tokens.txt', '--syb_token_list', 'data/token_list/phn_pyopenjtalk_jp/tokens.txt_syb', '--non_linguistic_symbols', 'none', '--cleaner', 'none', '--g2p', 'pyopenjtalk', '--normalize', 'global_mvn', '--resume', 'true', '--init_param', '--ignore_init_mismatch', 'false', '--fold_length', '150', '--fold_length', '240000', '--output_dir', 'exp/rnn-dp-alf-beat_lab_2', '--config', 'conf/tuning/train_naive_rnn_dp_alf.yaml', '--score_feats_extract', 'syllable_score_feats', '--score_feats_extract_conf', 'fs=24000', '--score_feats_extract_conf', 'n_fft=2048', '--score_feats_extract_conf', 'win_length=1200', '--score_feats_extract_conf', 'hop_length=300', '--feats_extract', 'fbank', '--feats_extract_conf', 'n_fft=2048', '--feats_extract_conf', 'hop_length=300', '--feats_extract_conf', 'win_length=1200', '--pitch_extract', 'None', '--feats_extract_conf', 'fs=24000', '--feats_extract_conf', 'fmin=80', '--feats_extract_conf', 'fmax=7600', '--feats_extract_conf', 'n_mels=80', '--train_data_path_and_name_and_type', 'dump/raw/tr_no_dev/text,text,text', '--train_data_path_and_name_and_type', 'dump/raw/tr_no_dev/wav.scp,singing,sound', '--train_data_path_and_name_and_type', 'dump/raw/tr_no_dev/label,label,duration', '--train_data_path_and_name_and_type', 'dump/raw/tr_no_dev/xml.scp,midi,midi', '--train_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/train/text_shape.phn', '--train_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/train/singing_shape', '--train_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/train/durations_shape', '--train_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/train/score_shape', '--valid_data_path_and_name_and_type', 'dump/raw/dev/text,text,text', '--valid_data_path_and_name_and_type', 'dump/raw/dev/wav.scp,singing,sound', '--valid_data_path_and_name_and_type', 'dump/raw/dev/label,label,duration', '--valid_data_path_and_name_and_type', 'dump/raw/dev/xml.scp,midi,midi', '--valid_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/text_shape.phn', '--valid_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/singing_shape', '--valid_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/durations_shape', '--valid_shape_file', 'exp/svs_stats_raw_phn_pyopenjtalk_jp/valid/score_shape', '--normalize_conf', 'stats_file=exp/svs_stats_raw_phn_pyopenjtalk_jp/train/feats_stats.npz', '--ngpu', '1', '--multiprocessing_distributed', 'True']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "/root/anaconda3/envs/espnet/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/root/anaconda3/envs/espnet/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data1/wyn/espnet/espnet2/bin/launch.py", line 384, in <module>
+    main()
+  File "/data1/wyn/espnet/espnet2/bin/launch.py", line 377, in main
+    f"###################\n" + "".join(lines[-1000:])
+RuntimeError: 
+################### The last 1000 lines of exp/rnn-dp-alf-beat_lab_2/train.log ###################
+[neptune_wyn_2245] 2022-10-16 06:19:42,657 (trainer:330) INFO: 435epoch results: [train] iter_time=0.039, forward_time=3.932, loss=1.141, l1_loss=0.567, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.024, optim0_lr0=1.000e-03, train_time=4.181, time=2 minutes and 26.46 seconds, total_count=15225, gpu_max_cached_mem_GB=2.254, [valid] loss=1.616, l1_loss=1.018, duration_loss=0.020, seg_loss=0.578, time=17.39 seconds, total_count=1740, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.79 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:19:48,424 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:19:48,461 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/428epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:19:48,462 (trainer:271) INFO: 436/500epoch started. Estimated time to finish: 3 hours, 2 minutes and 1.48 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:20:22,531 (trainer:710) INFO: 436epoch:train:1-10batch: iter_time=0.106, forward_time=3.070, loss=1.042, l1_loss=0.565, duration_loss=0.003, seg_loss=0.474, backward_time=0.128, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.406
+[neptune_wyn_2245] 2022-10-16 06:21:04,551 (trainer:710) INFO: 436epoch:train:11-20batch: iter_time=1.850e-04, forward_time=4.016, loss=1.083, l1_loss=0.554, duration_loss=0.003, seg_loss=0.525, backward_time=0.133, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.202
+[neptune_wyn_2245] 2022-10-16 06:21:49,978 (trainer:710) INFO: 436epoch:train:21-30batch: iter_time=1.390e-04, forward_time=4.343, loss=1.243, l1_loss=0.566, duration_loss=0.003, seg_loss=0.674, backward_time=0.146, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.542
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:22:30,943 (trainer:330) INFO: 436epoch results: [train] iter_time=0.030, forward_time=3.835, loss=1.140, l1_loss=0.566, duration_loss=0.003, seg_loss=0.572, backward_time=0.136, optim_step_time=0.022, optim0_lr0=1.000e-03, train_time=4.068, time=2 minutes and 22.5 seconds, total_count=15260, gpu_max_cached_mem_GB=2.254, [valid] loss=1.604, l1_loss=1.006, duration_loss=0.020, seg_loss=0.577, time=18.18 seconds, total_count=1744, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.8 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:22:36,562 (trainer:379) INFO: The best model has been updated: valid.loss
+[neptune_wyn_2245] 2022-10-16 06:22:36,594 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/398epoch.pth, exp/rnn-dp-alf-beat_lab_2/435epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:22:36,594 (trainer:271) INFO: 437/500epoch started. Estimated time to finish: 2 hours, 59 minutes and 13.47 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:23:16,939 (trainer:710) INFO: 437epoch:train:1-10batch: iter_time=0.078, forward_time=3.691, loss=1.266, l1_loss=0.563, duration_loss=0.003, seg_loss=0.700, backward_time=0.157, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.033
+[neptune_wyn_2245] 2022-10-16 06:23:58,888 (trainer:710) INFO: 437epoch:train:11-20batch: iter_time=1.560e-04, forward_time=4.011, loss=1.157, l1_loss=0.569, duration_loss=0.002, seg_loss=0.586, backward_time=0.134, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.194
+[neptune_wyn_2245] 2022-10-16 06:24:36,988 (trainer:710) INFO: 437epoch:train:21-30batch: iter_time=1.307e-04, forward_time=3.634, loss=0.969, l1_loss=0.563, duration_loss=0.003, seg_loss=0.403, backward_time=0.122, optim_step_time=0.023, optim0_lr0=0.001, train_time=3.810
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:25:19,225 (trainer:330) INFO: 437epoch results: [train] iter_time=0.022, forward_time=3.824, loss=1.139, l1_loss=0.565, duration_loss=0.003, seg_loss=0.572, backward_time=0.138, optim_step_time=0.022, optim0_lr0=1.000e-03, train_time=4.051, time=2 minutes and 21.93 seconds, total_count=15295, gpu_max_cached_mem_GB=2.254, [valid] loss=1.614, l1_loss=1.014, duration_loss=0.020, seg_loss=0.580, time=19.16 seconds, total_count=1748, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.53 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:25:25,361 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:25:25,370 (trainer:271) INFO: 438/500epoch started. Estimated time to finish: 2 hours, 56 minutes and 25.56 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:25:59,566 (trainer:710) INFO: 438epoch:train:1-10batch: iter_time=0.115, forward_time=3.077, loss=1.126, l1_loss=0.573, duration_loss=0.003, seg_loss=0.550, backward_time=0.124, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.419
+[neptune_wyn_2245] 2022-10-16 06:26:39,712 (trainer:710) INFO: 438epoch:train:11-20batch: iter_time=2.273e-04, forward_time=3.820, loss=1.116, l1_loss=0.568, duration_loss=0.002, seg_loss=0.545, backward_time=0.140, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.014
+[neptune_wyn_2245] 2022-10-16 06:27:22,880 (trainer:710) INFO: 438epoch:train:21-30batch: iter_time=1.391e-04, forward_time=4.114, loss=1.176, l1_loss=0.565, duration_loss=0.003, seg_loss=0.609, backward_time=0.152, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.316
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:28:08,144 (trainer:330) INFO: 438epoch results: [train] iter_time=0.033, forward_time=3.804, loss=1.142, l1_loss=0.568, duration_loss=0.003, seg_loss=0.572, backward_time=0.144, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.049, time=2 minutes and 21.85 seconds, total_count=15330, gpu_max_cached_mem_GB=2.254, [valid] loss=1.601, l1_loss=1.001, duration_loss=0.020, seg_loss=0.579, time=19.2 seconds, total_count=1752, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.72 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:28:14,017 (trainer:379) INFO: The best model has been updated: valid.loss
+[neptune_wyn_2245] 2022-10-16 06:28:14,045 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/434epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:28:14,045 (trainer:271) INFO: 439/500epoch started. Estimated time to finish: 2 hours, 53 minutes and 37.62 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:28:51,553 (trainer:710) INFO: 439epoch:train:1-10batch: iter_time=0.082, forward_time=3.416, loss=1.262, l1_loss=0.569, duration_loss=0.002, seg_loss=0.691, backward_time=0.146, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.750
+[neptune_wyn_2245] 2022-10-16 06:29:32,844 (trainer:710) INFO: 439epoch:train:11-20batch: iter_time=2.075e-04, forward_time=3.949, loss=1.146, l1_loss=0.565, duration_loss=0.003, seg_loss=0.578, backward_time=0.128, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.129
+[neptune_wyn_2245] 2022-10-16 06:30:15,836 (trainer:710) INFO: 439epoch:train:21-30batch: iter_time=1.293e-04, forward_time=4.111, loss=1.090, l1_loss=0.559, duration_loss=0.002, seg_loss=0.529, backward_time=0.140, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.299
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:30:56,469 (trainer:330) INFO: 439epoch results: [train] iter_time=0.024, forward_time=3.827, loss=1.139, l1_loss=0.565, duration_loss=0.002, seg_loss=0.571, backward_time=0.136, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.052, time=2 minutes and 21.96 seconds, total_count=15365, gpu_max_cached_mem_GB=2.254, [valid] loss=1.599, l1_loss=1.002, duration_loss=0.020, seg_loss=0.576, time=19.02 seconds, total_count=1756, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.44 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:31:02,006 (trainer:379) INFO: The best model has been updated: valid.loss
+[neptune_wyn_2245] 2022-10-16 06:31:02,053 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/427epoch.pth, exp/rnn-dp-alf-beat_lab_2/436epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:31:02,054 (trainer:271) INFO: 440/500epoch started. Estimated time to finish: 2 hours, 50 minutes and 49.59 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:31:40,190 (trainer:710) INFO: 440epoch:train:1-10batch: iter_time=0.069, forward_time=3.499, loss=1.069, l1_loss=0.560, duration_loss=0.003, seg_loss=0.506, backward_time=0.143, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.813
+[neptune_wyn_2245] 2022-10-16 06:32:22,161 (trainer:710) INFO: 440epoch:train:11-20batch: iter_time=1.448e-04, forward_time=4.006, loss=1.158, l1_loss=0.561, duration_loss=0.002, seg_loss=0.595, backward_time=0.142, optim_step_time=0.019, optim0_lr0=0.001, train_time=4.197
+[neptune_wyn_2245] 2022-10-16 06:33:02,325 (trainer:710) INFO: 440epoch:train:21-30batch: iter_time=1.350e-04, forward_time=3.835, loss=1.254, l1_loss=0.569, duration_loss=0.002, seg_loss=0.682, backward_time=0.130, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.016
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:33:43,458 (trainer:330) INFO: 440epoch results: [train] iter_time=0.020, forward_time=3.769, loss=1.137, l1_loss=0.563, duration_loss=0.002, seg_loss=0.571, backward_time=0.137, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=3.992, time=2 minutes and 19.85 seconds, total_count=15400, gpu_max_cached_mem_GB=2.254, [valid] loss=1.613, l1_loss=1.013, duration_loss=0.019, seg_loss=0.580, time=19.76 seconds, total_count=1760, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.79 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:33:49,306 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:33:49,317 (trainer:271) INFO: 441/500epoch started. Estimated time to finish: 2 hours, 48 minutes and 1.46 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:34:25,899 (trainer:710) INFO: 441epoch:train:1-10batch: iter_time=0.142, forward_time=3.280, loss=1.069, l1_loss=0.555, duration_loss=0.003, seg_loss=0.511, backward_time=0.124, optim_step_time=0.028, optim0_lr0=0.001, train_time=3.657
+[neptune_wyn_2245] 2022-10-16 06:35:07,088 (trainer:710) INFO: 441epoch:train:11-20batch: iter_time=1.685e-04, forward_time=3.930, loss=1.142, l1_loss=0.569, duration_loss=0.003, seg_loss=0.571, backward_time=0.129, optim_step_time=0.024, optim0_lr0=0.001, train_time=4.119
+[neptune_wyn_2245] 2022-10-16 06:35:53,500 (trainer:710) INFO: 441epoch:train:21-30batch: iter_time=1.311e-04, forward_time=4.440, loss=1.125, l1_loss=0.572, duration_loss=0.003, seg_loss=0.550, backward_time=0.147, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.641
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:36:35,119 (trainer:330) INFO: 441epoch results: [train] iter_time=0.041, forward_time=3.919, loss=1.138, l1_loss=0.564, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.023, optim0_lr0=1.000e-03, train_time=4.168, time=2 minutes and 26.01 seconds, total_count=15435, gpu_max_cached_mem_GB=2.254, [valid] loss=1.603, l1_loss=1.008, duration_loss=0.020, seg_loss=0.576, time=17.99 seconds, total_count=1764, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.8 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:36:42,604 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:36:42,633 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/437epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:36:42,633 (trainer:271) INFO: 442/500epoch started. Estimated time to finish: 2 hours, 45 minutes and 14.15 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:37:16,930 (trainer:710) INFO: 442epoch:train:1-10batch: iter_time=0.086, forward_time=3.114, loss=1.157, l1_loss=0.573, duration_loss=0.003, seg_loss=0.581, backward_time=0.120, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.429
+[neptune_wyn_2245] 2022-10-16 06:37:59,884 (trainer:710) INFO: 442epoch:train:11-20batch: iter_time=1.593e-04, forward_time=4.103, loss=1.084, l1_loss=0.558, duration_loss=0.003, seg_loss=0.523, backward_time=0.143, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.295
+[neptune_wyn_2245] 2022-10-16 06:38:44,189 (trainer:710) INFO: 442epoch:train:21-30batch: iter_time=1.294e-04, forward_time=4.235, loss=1.183, l1_loss=0.552, duration_loss=0.002, seg_loss=0.628, backward_time=0.145, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.430
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:39:24,530 (trainer:330) INFO: 442epoch results: [train] iter_time=0.025, forward_time=3.815, loss=1.137, l1_loss=0.563, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.040, time=2 minutes and 21.54 seconds, total_count=15470, gpu_max_cached_mem_GB=2.254, [valid] loss=1.601, l1_loss=1.005, duration_loss=0.019, seg_loss=0.576, time=18.58 seconds, total_count=1768, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.77 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:39:30,023 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:39:30,074 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/438epoch.pth, exp/rnn-dp-alf-beat_lab_2/441epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:39:30,074 (trainer:271) INFO: 443/500epoch started. Estimated time to finish: 2 hours, 42 minutes and 26.03 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:40:04,761 (trainer:710) INFO: 443epoch:train:1-10batch: iter_time=0.094, forward_time=3.142, loss=1.155, l1_loss=0.559, duration_loss=0.003, seg_loss=0.593, backward_time=0.129, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.468
+[neptune_wyn_2245] 2022-10-16 06:40:52,122 (trainer:710) INFO: 443epoch:train:11-20batch: iter_time=1.997e-04, forward_time=4.530, loss=1.103, l1_loss=0.563, duration_loss=0.003, seg_loss=0.538, backward_time=0.155, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.736
+[neptune_wyn_2245] 2022-10-16 06:41:30,394 (trainer:710) INFO: 443epoch:train:21-30batch: iter_time=1.317e-04, forward_time=3.655, loss=1.116, l1_loss=0.570, duration_loss=0.003, seg_loss=0.543, backward_time=0.123, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.827
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:42:10,477 (trainer:330) INFO: 443epoch results: [train] iter_time=0.027, forward_time=3.792, loss=1.136, l1_loss=0.562, duration_loss=0.003, seg_loss=0.571, backward_time=0.134, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.018, time=2 minutes and 20.76 seconds, total_count=15505, gpu_max_cached_mem_GB=2.254, [valid] loss=1.614, l1_loss=1.015, duration_loss=0.020, seg_loss=0.578, time=17.89 seconds, total_count=1772, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.75 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:42:15,978 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:42:15,987 (trainer:271) INFO: 444/500epoch started. Estimated time to finish: 2 hours, 39 minutes and 37.73 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:42:53,125 (trainer:710) INFO: 444epoch:train:1-10batch: iter_time=0.074, forward_time=3.396, loss=1.174, l1_loss=0.571, duration_loss=0.003, seg_loss=0.600, backward_time=0.138, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.713
+[neptune_wyn_2245] 2022-10-16 06:43:36,172 (trainer:710) INFO: 444epoch:train:11-20batch: iter_time=1.716e-04, forward_time=4.117, loss=1.119, l1_loss=0.557, duration_loss=0.003, seg_loss=0.559, backward_time=0.138, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.304
+[neptune_wyn_2245] 2022-10-16 06:44:17,947 (trainer:710) INFO: 444epoch:train:21-30batch: iter_time=1.285e-04, forward_time=3.989, loss=1.165, l1_loss=0.560, duration_loss=0.003, seg_loss=0.603, backward_time=0.138, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.177
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:44:56,659 (trainer:330) INFO: 444epoch results: [train] iter_time=0.021, forward_time=3.798, loss=1.136, l1_loss=0.562, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.022, time=2 minutes and 20.87 seconds, total_count=15540, gpu_max_cached_mem_GB=2.254, [valid] loss=1.609, l1_loss=1.011, duration_loss=0.020, seg_loss=0.578, time=18.02 seconds, total_count=1776, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.78 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:45:02,321 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:45:02,348 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/440epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:45:02,348 (trainer:271) INFO: 445/500epoch started. Estimated time to finish: 2 hours, 36 minutes and 49.48 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:45:37,005 (trainer:710) INFO: 445epoch:train:1-10batch: iter_time=0.127, forward_time=3.110, loss=1.023, l1_loss=0.567, duration_loss=0.003, seg_loss=0.453, backward_time=0.126, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.465
+[neptune_wyn_2245] 2022-10-16 06:46:21,204 (trainer:710) INFO: 445epoch:train:11-20batch: iter_time=1.787e-04, forward_time=4.227, loss=1.187, l1_loss=0.557, duration_loss=0.002, seg_loss=0.628, backward_time=0.144, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.420
+[neptune_wyn_2245] 2022-10-16 06:47:00,678 (trainer:710) INFO: 445epoch:train:21-30batch: iter_time=1.018e-04, forward_time=3.769, loss=1.221, l1_loss=0.558, duration_loss=0.002, seg_loss=0.660, backward_time=0.127, optim_step_time=0.022, optim0_lr0=0.001, train_time=3.947
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:47:43,679 (trainer:330) INFO: 445epoch results: [train] iter_time=0.036, forward_time=3.786, loss=1.134, l1_loss=0.560, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.022, time=2 minutes and 20.89 seconds, total_count=15575, gpu_max_cached_mem_GB=2.254, [valid] loss=1.613, l1_loss=1.012, duration_loss=0.022, seg_loss=0.579, time=18.79 seconds, total_count=1780, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.64 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:47:49,218 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:47:49,245 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/443epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:47:49,245 (trainer:271) INFO: 446/500epoch started. Estimated time to finish: 2 hours, 34 minutes and 1.32 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:48:24,761 (trainer:710) INFO: 446epoch:train:1-10batch: iter_time=0.106, forward_time=3.223, loss=1.098, l1_loss=0.556, duration_loss=0.003, seg_loss=0.538, backward_time=0.120, optim_step_time=0.023, optim0_lr0=0.001, train_time=3.551
+[neptune_wyn_2245] 2022-10-16 06:49:07,218 (trainer:710) INFO: 446epoch:train:11-20batch: iter_time=1.637e-04, forward_time=4.065, loss=1.137, l1_loss=0.570, duration_loss=0.003, seg_loss=0.564, backward_time=0.133, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.245
+[neptune_wyn_2245] 2022-10-16 06:49:51,658 (trainer:710) INFO: 446epoch:train:21-30batch: iter_time=1.208e-04, forward_time=4.235, loss=1.095, l1_loss=0.564, duration_loss=0.003, seg_loss=0.527, backward_time=0.156, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.443
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:50:32,897 (trainer:330) INFO: 446epoch results: [train] iter_time=0.030, forward_time=3.854, loss=1.136, l1_loss=0.561, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.085, time=2 minutes and 23.13 seconds, total_count=15610, gpu_max_cached_mem_GB=2.254, [valid] loss=1.603, l1_loss=1.005, duration_loss=0.019, seg_loss=0.578, time=18.74 seconds, total_count=1784, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.79 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:50:38,446 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:50:38,473 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/444epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:50:38,473 (trainer:271) INFO: 447/500epoch started. Estimated time to finish: 2 hours, 31 minutes and 13.44 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:51:15,038 (trainer:710) INFO: 447epoch:train:1-10batch: iter_time=0.121, forward_time=3.302, loss=1.130, l1_loss=0.556, duration_loss=0.003, seg_loss=0.571, backward_time=0.122, optim_step_time=0.028, optim0_lr0=0.001, train_time=3.656
+[neptune_wyn_2245] 2022-10-16 06:51:57,414 (trainer:710) INFO: 447epoch:train:11-20batch: iter_time=1.646e-04, forward_time=4.034, loss=1.187, l1_loss=0.568, duration_loss=0.003, seg_loss=0.616, backward_time=0.139, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.237
+[neptune_wyn_2245] 2022-10-16 06:52:45,701 (trainer:710) INFO: 447epoch:train:21-30batch: iter_time=1.249e-04, forward_time=4.621, loss=1.087, l1_loss=0.564, duration_loss=0.003, seg_loss=0.520, backward_time=0.158, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.828
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:53:23,565 (trainer:330) INFO: 447epoch results: [train] iter_time=0.035, forward_time=3.924, loss=1.135, l1_loss=0.561, duration_loss=0.003, seg_loss=0.571, backward_time=0.140, optim_step_time=0.023, optim0_lr0=1.000e-03, train_time=4.169, time=2 minutes and 26.01 seconds, total_count=15645, gpu_max_cached_mem_GB=2.254, [valid] loss=1.605, l1_loss=1.009, duration_loss=0.019, seg_loss=0.578, time=17.31 seconds, total_count=1788, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.77 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:53:29,282 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:53:29,317 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/446epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:53:29,317 (trainer:271) INFO: 448/500epoch started. Estimated time to finish: 2 hours, 28 minutes and 25.75 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:54:11,715 (trainer:710) INFO: 448epoch:train:1-10batch: iter_time=0.087, forward_time=3.896, loss=1.198, l1_loss=0.563, duration_loss=0.003, seg_loss=0.632, backward_time=0.155, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.239
+[neptune_wyn_2245] 2022-10-16 06:54:51,488 (trainer:710) INFO: 448epoch:train:11-20batch: iter_time=1.560e-04, forward_time=3.794, loss=1.094, l1_loss=0.554, duration_loss=0.003, seg_loss=0.538, backward_time=0.129, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.977
+[neptune_wyn_2245] 2022-10-16 06:55:28,678 (trainer:710) INFO: 448epoch:train:21-30batch: iter_time=1.184e-04, forward_time=3.552, loss=1.024, l1_loss=0.558, duration_loss=0.003, seg_loss=0.463, backward_time=0.119, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.719
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:56:12,171 (trainer:330) INFO: 448epoch results: [train] iter_time=0.025, forward_time=3.885, loss=1.133, l1_loss=0.559, duration_loss=0.003, seg_loss=0.571, backward_time=0.138, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.112, time=2 minutes and 24.05 seconds, total_count=15680, gpu_max_cached_mem_GB=2.254, [valid] loss=1.609, l1_loss=1.011, duration_loss=0.020, seg_loss=0.578, time=17.06 seconds, total_count=1792, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.74 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:56:17,736 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 06:56:17,766 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/447epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:56:17,766 (trainer:271) INFO: 449/500epoch started. Estimated time to finish: 2 hours, 25 minutes and 37.76 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:56:53,629 (trainer:710) INFO: 449epoch:train:1-10batch: iter_time=0.105, forward_time=3.265, loss=1.062, l1_loss=0.561, duration_loss=0.003, seg_loss=0.499, backward_time=0.119, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.585
+[neptune_wyn_2245] 2022-10-16 06:57:34,693 (trainer:710) INFO: 449epoch:train:11-20batch: iter_time=1.798e-04, forward_time=3.928, loss=1.193, l1_loss=0.562, duration_loss=0.003, seg_loss=0.629, backward_time=0.132, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.106
+[neptune_wyn_2245] 2022-10-16 06:58:18,159 (trainer:710) INFO: 449epoch:train:21-30batch: iter_time=1.276e-04, forward_time=4.172, loss=1.170, l1_loss=0.566, duration_loss=0.003, seg_loss=0.602, backward_time=0.130, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.346
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:58:59,766 (trainer:330) INFO: 449epoch results: [train] iter_time=0.030, forward_time=3.868, loss=1.134, l1_loss=0.560, duration_loss=0.003, seg_loss=0.571, backward_time=0.129, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.086, time=2 minutes and 23.14 seconds, total_count=15715, gpu_max_cached_mem_GB=2.254, [valid] loss=1.601, l1_loss=1.004, duration_loss=0.019, seg_loss=0.577, time=17.14 seconds, total_count=1796, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.71 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 06:59:05,281 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 06:59:05,308 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/445epoch.pth
+[neptune_wyn_2245] 2022-10-16 06:59:05,308 (trainer:271) INFO: 450/500epoch started. Estimated time to finish: 2 hours, 22 minutes and 49.67 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 06:59:48,580 (trainer:710) INFO: 450epoch:train:1-10batch: iter_time=0.154, forward_time=3.936, loss=1.060, l1_loss=0.560, duration_loss=0.002, seg_loss=0.498, backward_time=0.137, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.326
+[neptune_wyn_2245] 2022-10-16 07:00:26,545 (trainer:710) INFO: 450epoch:train:11-20batch: iter_time=1.567e-04, forward_time=3.619, loss=1.147, l1_loss=0.563, duration_loss=0.003, seg_loss=0.580, backward_time=0.122, optim_step_time=0.024, optim0_lr0=0.001, train_time=3.796
+[neptune_wyn_2245] 2022-10-16 07:01:08,435 (trainer:710) INFO: 450epoch:train:21-30batch: iter_time=1.214e-04, forward_time=3.983, loss=1.125, l1_loss=0.554, duration_loss=0.002, seg_loss=0.569, backward_time=0.139, optim_step_time=0.027, optim0_lr0=0.001, train_time=4.189
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:01:52,234 (trainer:330) INFO: 450epoch results: [train] iter_time=0.044, forward_time=3.968, loss=1.133, l1_loss=0.559, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.024, optim0_lr0=1.000e-03, train_time=4.222, time=2 minutes and 27.9 seconds, total_count=15750, gpu_max_cached_mem_GB=2.254, [valid] loss=1.605, l1_loss=1.008, duration_loss=0.020, seg_loss=0.577, time=17.26 seconds, total_count=1800, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.76 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:01:58,069 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 07:01:58,096 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/449epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:01:58,097 (trainer:271) INFO: 451/500epoch started. Estimated time to finish: 2 hours, 20 minutes and 2.17 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:02:41,647 (trainer:710) INFO: 451epoch:train:1-10batch: iter_time=0.048, forward_time=4.051, loss=1.167, l1_loss=0.560, duration_loss=0.004, seg_loss=0.603, backward_time=0.147, optim_step_time=0.023, optim0_lr0=0.001, train_time=4.354
+[neptune_wyn_2245] 2022-10-16 07:03:21,720 (trainer:710) INFO: 451epoch:train:11-20batch: iter_time=1.478e-04, forward_time=3.834, loss=1.061, l1_loss=0.554, duration_loss=0.003, seg_loss=0.504, backward_time=0.125, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.007
+[neptune_wyn_2245] 2022-10-16 07:04:03,385 (trainer:710) INFO: 451epoch:train:21-30batch: iter_time=1.100e-04, forward_time=3.983, loss=1.107, l1_loss=0.555, duration_loss=0.003, seg_loss=0.550, backward_time=0.136, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.166
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:04:42,465 (trainer:330) INFO: 451epoch results: [train] iter_time=0.014, forward_time=3.934, loss=1.133, l1_loss=0.558, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.021, optim0_lr0=1.000e-03, train_time=4.147, time=2 minutes and 25.26 seconds, total_count=15785, gpu_max_cached_mem_GB=2.254, [valid] loss=1.609, l1_loss=1.011, duration_loss=0.020, seg_loss=0.577, time=17.29 seconds, total_count=1804, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.81 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:04:48,661 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:04:48,669 (trainer:271) INFO: 452/500epoch started. Estimated time to finish: 2 hours, 17 minutes and 14.4 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:05:32,294 (trainer:710) INFO: 452epoch:train:1-10batch: iter_time=0.095, forward_time=4.027, loss=1.129, l1_loss=0.568, duration_loss=0.003, seg_loss=0.557, backward_time=0.138, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.362
+[neptune_wyn_2245] 2022-10-16 07:06:16,146 (trainer:710) INFO: 452epoch:train:11-20batch: iter_time=1.691e-04, forward_time=4.192, loss=1.203, l1_loss=0.560, duration_loss=0.003, seg_loss=0.640, backward_time=0.144, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.385
+[neptune_wyn_2245] 2022-10-16 07:06:53,532 (trainer:710) INFO: 452epoch:train:21-30batch: iter_time=1.140e-04, forward_time=3.566, loss=1.034, l1_loss=0.545, duration_loss=0.003, seg_loss=0.487, backward_time=0.122, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.738
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:07:33,361 (trainer:330) INFO: 452epoch results: [train] iter_time=0.027, forward_time=3.944, loss=1.130, l1_loss=0.556, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.170, time=2 minutes and 26.07 seconds, total_count=15820, gpu_max_cached_mem_GB=2.254, [valid] loss=1.609, l1_loss=1.011, duration_loss=0.019, seg_loss=0.578, time=16.85 seconds, total_count=1808, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.77 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:07:39,008 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 07:07:39,054 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/448epoch.pth, exp/rnn-dp-alf-beat_lab_2/451epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:07:39,055 (trainer:271) INFO: 453/500epoch started. Estimated time to finish: 2 hours, 14 minutes and 26.6 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:08:15,780 (trainer:710) INFO: 453epoch:train:1-10batch: iter_time=0.103, forward_time=3.338, loss=1.178, l1_loss=0.569, duration_loss=0.003, seg_loss=0.606, backward_time=0.122, optim_step_time=0.026, optim0_lr0=0.001, train_time=3.672
+[neptune_wyn_2245] 2022-10-16 07:08:56,945 (trainer:710) INFO: 453epoch:train:11-20batch: iter_time=1.711e-04, forward_time=3.935, loss=1.181, l1_loss=0.563, duration_loss=0.003, seg_loss=0.615, backward_time=0.122, optim_step_time=0.027, optim0_lr0=0.001, train_time=4.116
+[neptune_wyn_2245] 2022-10-16 07:09:44,102 (trainer:710) INFO: 453epoch:train:21-30batch: iter_time=1.362e-04, forward_time=4.504, loss=1.063, l1_loss=0.549, duration_loss=0.003, seg_loss=0.511, backward_time=0.151, optim_step_time=0.027, optim0_lr0=0.001, train_time=4.715
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:10:27,547 (trainer:330) INFO: 453epoch results: [train] iter_time=0.029, forward_time=4.027, loss=1.133, l1_loss=0.559, duration_loss=0.003, seg_loss=0.571, backward_time=0.136, optim_step_time=0.027, optim0_lr0=1.000e-03, train_time=4.266, time=2 minutes and 29.44 seconds, total_count=15855, gpu_max_cached_mem_GB=2.254, [valid] loss=1.613, l1_loss=1.014, duration_loss=0.019, seg_loss=0.580, time=17.7 seconds, total_count=1812, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.35 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:10:34,431 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:10:34,439 (trainer:271) INFO: 454/500epoch started. Estimated time to finish: 2 hours, 11 minutes and 39.31 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:11:15,841 (trainer:710) INFO: 454epoch:train:1-10batch: iter_time=0.149, forward_time=3.768, loss=1.056, l1_loss=0.559, duration_loss=0.003, seg_loss=0.494, backward_time=0.122, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.139
+[neptune_wyn_2245] 2022-10-16 07:11:58,351 (trainer:710) INFO: 454epoch:train:11-20batch: iter_time=1.329e-04, forward_time=4.066, loss=1.166, l1_loss=0.559, duration_loss=0.002, seg_loss=0.605, backward_time=0.137, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.251
+[neptune_wyn_2245] 2022-10-16 07:12:41,800 (trainer:710) INFO: 454epoch:train:21-30batch: iter_time=1.115e-04, forward_time=4.149, loss=1.164, l1_loss=0.551, duration_loss=0.003, seg_loss=0.610, backward_time=0.147, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.345
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:13:21,884 (trainer:330) INFO: 454epoch results: [train] iter_time=0.043, forward_time=3.985, loss=1.132, l1_loss=0.558, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.226, time=2 minutes and 28.05 seconds, total_count=15890, gpu_max_cached_mem_GB=2.254, [valid] loss=1.603, l1_loss=1.006, duration_loss=0.020, seg_loss=0.577, time=17.91 seconds, total_count=1816, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.48 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:13:29,553 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:13:29,598 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/450epoch.pth, exp/rnn-dp-alf-beat_lab_2/453epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:13:29,599 (trainer:271) INFO: 455/500epoch started. Estimated time to finish: 2 hours, 8 minutes and 51.95 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:14:08,028 (trainer:710) INFO: 455epoch:train:1-10batch: iter_time=0.060, forward_time=3.562, loss=1.134, l1_loss=0.552, duration_loss=0.003, seg_loss=0.579, backward_time=0.119, optim_step_time=0.021, optim0_lr0=0.001, train_time=3.842
+[neptune_wyn_2245] 2022-10-16 07:14:49,767 (trainer:710) INFO: 455epoch:train:11-20batch: iter_time=1.802e-04, forward_time=3.990, loss=1.124, l1_loss=0.568, duration_loss=0.003, seg_loss=0.553, backward_time=0.131, optim_step_time=0.022, optim0_lr0=0.001, train_time=4.173
+[neptune_wyn_2245] 2022-10-16 07:15:34,651 (trainer:710) INFO: 455epoch:train:21-30batch: iter_time=1.288e-04, forward_time=4.287, loss=1.153, l1_loss=0.550, duration_loss=0.002, seg_loss=0.601, backward_time=0.144, optim_step_time=0.026, optim0_lr0=0.001, train_time=4.488
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:16:18,354 (trainer:330) INFO: 455epoch results: [train] iter_time=0.017, forward_time=4.046, loss=1.131, l1_loss=0.557, duration_loss=0.003, seg_loss=0.571, backward_time=0.134, optim_step_time=0.024, optim0_lr0=1.000e-03, train_time=4.266, time=2 minutes and 29.44 seconds, total_count=15925, gpu_max_cached_mem_GB=2.254, [valid] loss=1.604, l1_loss=1.005, duration_loss=0.020, seg_loss=0.579, time=17.82 seconds, total_count=1820, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.49 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:16:25,198 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:16:25,229 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/454epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:16:25,229 (trainer:271) INFO: 456/500epoch started. Estimated time to finish: 2 hours, 6 minutes and 4.61 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:17:14,734 (trainer:710) INFO: 456epoch:train:1-10batch: iter_time=0.119, forward_time=4.561, loss=1.091, l1_loss=0.554, duration_loss=0.002, seg_loss=0.534, backward_time=0.160, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.950
+[neptune_wyn_2245] 2022-10-16 07:17:51,584 (trainer:710) INFO: 456epoch:train:11-20batch: iter_time=1.785e-04, forward_time=3.517, loss=1.179, l1_loss=0.547, duration_loss=0.003, seg_loss=0.629, backward_time=0.119, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.685
+[neptune_wyn_2245] 2022-10-16 07:18:33,837 (trainer:710) INFO: 456epoch:train:21-30batch: iter_time=1.291e-04, forward_time=4.039, loss=1.037, l1_loss=0.560, duration_loss=0.003, seg_loss=0.474, backward_time=0.134, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.225
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:19:10,992 (trainer:330) INFO: 456epoch results: [train] iter_time=0.034, forward_time=3.962, loss=1.130, l1_loss=0.556, duration_loss=0.003, seg_loss=0.571, backward_time=0.136, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.198, time=2 minutes and 27.05 seconds, total_count=15960, gpu_max_cached_mem_GB=2.254, [valid] loss=1.612, l1_loss=1.014, duration_loss=0.019, seg_loss=0.579, time=17.37 seconds, total_count=1824, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.34 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:19:17,001 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 07:19:17,028 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/455epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:19:17,029 (trainer:271) INFO: 457/500epoch started. Estimated time to finish: 2 hours, 3 minutes and 16.87 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:20:05,548 (trainer:710) INFO: 457epoch:train:1-10batch: iter_time=0.134, forward_time=4.465, loss=1.109, l1_loss=0.549, duration_loss=0.003, seg_loss=0.557, backward_time=0.152, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.851
+[neptune_wyn_2245] 2022-10-16 07:20:45,885 (trainer:710) INFO: 457epoch:train:11-20batch: iter_time=1.599e-04, forward_time=3.843, loss=1.316, l1_loss=0.566, duration_loss=0.004, seg_loss=0.746, backward_time=0.140, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.033
+[neptune_wyn_2245] 2022-10-16 07:21:29,048 (trainer:710) INFO: 457epoch:train:21-30batch: iter_time=1.491e-04, forward_time=4.125, loss=1.028, l1_loss=0.548, duration_loss=0.003, seg_loss=0.477, backward_time=0.142, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.316
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:22:02,694 (trainer:330) INFO: 457epoch results: [train] iter_time=0.038, forward_time=3.967, loss=1.129, l1_loss=0.555, duration_loss=0.003, seg_loss=0.571, backward_time=0.138, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.207, time=2 minutes and 27.38 seconds, total_count=15995, gpu_max_cached_mem_GB=2.254, [valid] loss=1.608, l1_loss=1.010, duration_loss=0.021, seg_loss=0.577, time=16.98 seconds, total_count=1828, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.3 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:22:08,635 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 07:22:08,671 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/452epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:22:08,671 (trainer:271) INFO: 458/500epoch started. Estimated time to finish: 2 hours and 29.09 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:22:53,215 (trainer:710) INFO: 458epoch:train:1-10batch: iter_time=0.105, forward_time=4.114, loss=1.172, l1_loss=0.548, duration_loss=0.004, seg_loss=0.621, backward_time=0.137, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.453
+[neptune_wyn_2245] 2022-10-16 07:23:31,195 (trainer:710) INFO: 458epoch:train:11-20batch: iter_time=2.075e-04, forward_time=3.638, loss=1.001, l1_loss=0.557, duration_loss=0.003, seg_loss=0.441, backward_time=0.112, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.798
+[neptune_wyn_2245] 2022-10-16 07:24:14,102 (trainer:710) INFO: 458epoch:train:21-30batch: iter_time=1.317e-04, forward_time=4.095, loss=1.178, l1_loss=0.558, duration_loss=0.003, seg_loss=0.618, backward_time=0.142, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.290
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:24:54,232 (trainer:330) INFO: 458epoch results: [train] iter_time=0.030, forward_time=3.965, loss=1.130, l1_loss=0.555, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.193, time=2 minutes and 26.91 seconds, total_count=16030, gpu_max_cached_mem_GB=2.254, [valid] loss=1.612, l1_loss=1.012, duration_loss=0.020, seg_loss=0.580, time=17.3 seconds, total_count=1832, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.35 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:25:00,209 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:25:00,238 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/456epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:25:00,239 (trainer:271) INFO: 459/500epoch started. Estimated time to finish: 1 hour, 57 minutes and 41.29 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:25:44,790 (trainer:710) INFO: 459epoch:train:1-10batch: iter_time=0.128, forward_time=4.086, loss=1.182, l1_loss=0.561, duration_loss=0.003, seg_loss=0.618, backward_time=0.137, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.454
+[neptune_wyn_2245] 2022-10-16 07:26:32,812 (trainer:710) INFO: 459epoch:train:11-20batch: iter_time=1.645e-04, forward_time=4.595, loss=1.226, l1_loss=0.557, duration_loss=0.003, seg_loss=0.666, backward_time=0.157, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.802
+[neptune_wyn_2245] 2022-10-16 07:27:10,401 (trainer:710) INFO: 459epoch:train:21-30batch: iter_time=1.216e-04, forward_time=3.591, loss=1.037, l1_loss=0.559, duration_loss=0.003, seg_loss=0.475, backward_time=0.120, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.758
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:27:47,222 (trainer:330) INFO: 459epoch results: [train] iter_time=0.037, forward_time=3.994, loss=1.130, l1_loss=0.556, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.232, time=2 minutes and 28.25 seconds, total_count=16065, gpu_max_cached_mem_GB=2.254, [valid] loss=1.606, l1_loss=1.009, duration_loss=0.020, seg_loss=0.577, time=17.22 seconds, total_count=1836, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.51 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:27:53,188 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:27:53,200 (trainer:271) INFO: 460/500epoch started. Estimated time to finish: 1 hour, 54 minutes and 53.59 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:28:39,521 (trainer:710) INFO: 460epoch:train:1-10batch: iter_time=0.083, forward_time=4.267, loss=1.123, l1_loss=0.565, duration_loss=0.003, seg_loss=0.555, backward_time=0.165, optim_step_time=0.024, optim0_lr0=0.001, train_time=4.631
+[neptune_wyn_2245] 2022-10-16 07:29:32,101 (trainer:710) INFO: 460epoch:train:11-20batch: iter_time=5.700e-04, forward_time=4.947, loss=1.266, l1_loss=0.553, duration_loss=0.003, seg_loss=0.710, backward_time=0.226, optim_step_time=0.039, optim0_lr0=0.001, train_time=5.257
+[neptune_wyn_2245] 2022-10-16 07:30:22,866 (trainer:710) INFO: 460epoch:train:21-30batch: iter_time=2.312e-04, forward_time=4.816, loss=1.090, l1_loss=0.552, duration_loss=0.004, seg_loss=0.535, backward_time=0.183, optim_step_time=0.035, optim0_lr0=0.001, train_time=5.076
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:31:04,971 (trainer:330) INFO: 460epoch results: [train] iter_time=0.024, forward_time=4.588, loss=1.130, l1_loss=0.556, duration_loss=0.004, seg_loss=0.571, backward_time=0.184, optim_step_time=0.033, optim0_lr0=1.000e-03, train_time=4.885, time=2 minutes and 51.19 seconds, total_count=16100, gpu_max_cached_mem_GB=2.254, [valid] loss=1.611, l1_loss=1.014, duration_loss=0.020, seg_loss=0.577, time=18.88 seconds, total_count=1840, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.69 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:31:12,946 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:31:12,959 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/459epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:31:12,960 (trainer:271) INFO: 461/500epoch started. Estimated time to finish: 1 hour, 52 minutes and 8.21 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:32:16,691 (trainer:710) INFO: 461epoch:train:1-10batch: iter_time=0.103, forward_time=5.818, loss=1.219, l1_loss=0.552, duration_loss=0.004, seg_loss=0.663, backward_time=0.298, optim_step_time=0.046, optim0_lr0=0.001, train_time=6.370
+[neptune_wyn_2245] 2022-10-16 07:33:13,202 (trainer:710) INFO: 461epoch:train:11-20batch: iter_time=0.003, forward_time=5.308, loss=1.108, l1_loss=0.553, duration_loss=0.003, seg_loss=0.552, backward_time=0.239, optim_step_time=0.052, optim0_lr0=0.001, train_time=5.650
+[neptune_wyn_2245] 2022-10-16 07:34:01,018 (trainer:710) INFO: 461epoch:train:21-30batch: iter_time=2.180e-04, forward_time=4.509, loss=1.100, l1_loss=0.555, duration_loss=0.003, seg_loss=0.543, backward_time=0.186, optim_step_time=0.041, optim0_lr0=0.001, train_time=4.781
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:34:37,424 (trainer:330) INFO: 461epoch results: [train] iter_time=0.030, forward_time=4.927, loss=1.127, l1_loss=0.552, duration_loss=0.003, seg_loss=0.571, backward_time=0.225, optim_step_time=0.044, optim0_lr0=1.000e-03, train_time=5.287, time=3 minutes and 5.24 seconds, total_count=16135, gpu_max_cached_mem_GB=2.254, [valid] loss=1.603, l1_loss=1.005, duration_loss=0.019, seg_loss=0.578, time=17.5 seconds, total_count=1844, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.72 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:34:44,865 (trainer:379) INFO: The best model has been updated: train.loss
+[neptune_wyn_2245] 2022-10-16 07:34:44,890 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/458epoch.pth, exp/rnn-dp-alf-beat_lab_2/460epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:34:44,890 (trainer:271) INFO: 462/500epoch started. Estimated time to finish: 1 hour, 49 minutes and 23.7 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:35:30,628 (trainer:710) INFO: 462epoch:train:1-10batch: iter_time=0.085, forward_time=4.117, loss=1.173, l1_loss=0.551, duration_loss=0.003, seg_loss=0.620, backward_time=0.227, optim_step_time=0.049, optim0_lr0=0.001, train_time=4.572
+[neptune_wyn_2245] 2022-10-16 07:36:18,065 (trainer:710) INFO: 462epoch:train:11-20batch: iter_time=2.432e-04, forward_time=4.503, loss=1.127, l1_loss=0.552, duration_loss=0.003, seg_loss=0.572, backward_time=0.170, optim_step_time=0.028, optim0_lr0=0.001, train_time=4.743
+[neptune_wyn_2245] 2022-10-16 07:37:06,294 (trainer:710) INFO: 462epoch:train:21-30batch: iter_time=2.390e-04, forward_time=4.577, loss=1.054, l1_loss=0.550, duration_loss=0.003, seg_loss=0.501, backward_time=0.177, optim_step_time=0.033, optim0_lr0=0.001, train_time=4.822
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:37:49,872 (trainer:330) INFO: 462epoch results: [train] iter_time=0.024, forward_time=4.397, loss=1.129, l1_loss=0.555, duration_loss=0.003, seg_loss=0.571, backward_time=0.189, optim_step_time=0.035, optim0_lr0=1.000e-03, train_time=4.700, time=2 minutes and 44.64 seconds, total_count=16170, gpu_max_cached_mem_GB=2.254, [valid] loss=1.617, l1_loss=1.015, duration_loss=0.023, seg_loss=0.579, time=19.04 seconds, total_count=1848, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.31 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:37:55,967 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:37:55,980 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/457epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:37:55,981 (trainer:271) INFO: 463/500epoch started. Estimated time to finish: 1 hour, 46 minutes and 37.28 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:38:42,779 (trainer:710) INFO: 463epoch:train:1-10batch: iter_time=0.152, forward_time=4.250, loss=1.158, l1_loss=0.555, duration_loss=0.004, seg_loss=0.599, backward_time=0.166, optim_step_time=0.031, optim0_lr0=0.001, train_time=4.678
+[neptune_wyn_2245] 2022-10-16 07:39:30,087 (trainer:710) INFO: 463epoch:train:11-20batch: iter_time=3.245e-04, forward_time=4.497, loss=1.125, l1_loss=0.548, duration_loss=0.003, seg_loss=0.574, backward_time=0.169, optim_step_time=0.029, optim0_lr0=0.001, train_time=4.730
+[neptune_wyn_2245] 2022-10-16 07:40:12,497 (trainer:710) INFO: 463epoch:train:21-30batch: iter_time=1.940e-04, forward_time=4.047, loss=1.109, l1_loss=0.566, duration_loss=0.006, seg_loss=0.536, backward_time=0.137, optim_step_time=0.023, optim0_lr0=0.001, train_time=4.241
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:40:47,973 (trainer:330) INFO: 463epoch results: [train] iter_time=0.044, forward_time=4.135, loss=1.131, l1_loss=0.556, duration_loss=0.004, seg_loss=0.571, backward_time=0.152, optim_step_time=0.027, optim0_lr0=1.000e-03, train_time=4.404, time=2 minutes and 34.25 seconds, total_count=16205, gpu_max_cached_mem_GB=2.254, [valid] loss=1.608, l1_loss=1.012, duration_loss=0.020, seg_loss=0.575, time=16.52 seconds, total_count=1852, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.22 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:40:54,831 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:40:54,840 (trainer:271) INFO: 464/500epoch started. Estimated time to finish: 1 hour, 43 minutes and 49.77 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:41:39,231 (trainer:710) INFO: 464epoch:train:1-10batch: iter_time=0.072, forward_time=4.129, loss=1.132, l1_loss=0.559, duration_loss=0.004, seg_loss=0.570, backward_time=0.138, optim_step_time=0.024, optim0_lr0=0.001, train_time=4.438
+[neptune_wyn_2245] 2022-10-16 07:42:15,911 (trainer:710) INFO: 464epoch:train:11-20batch: iter_time=1.903e-04, forward_time=3.501, loss=1.097, l1_loss=0.553, duration_loss=0.003, seg_loss=0.541, backward_time=0.117, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.668
+[neptune_wyn_2245] 2022-10-16 07:43:04,643 (trainer:710) INFO: 464epoch:train:21-30batch: iter_time=1.685e-04, forward_time=4.654, loss=1.159, l1_loss=0.547, duration_loss=0.003, seg_loss=0.609, backward_time=0.162, optim_step_time=0.025, optim0_lr0=0.001, train_time=4.873
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:43:41,117 (trainer:330) INFO: 464epoch results: [train] iter_time=0.021, forward_time=4.035, loss=1.129, l1_loss=0.555, duration_loss=0.003, seg_loss=0.571, backward_time=0.137, optim_step_time=0.023, optim0_lr0=1.000e-03, train_time=4.259, time=2 minutes and 29.21 seconds, total_count=16240, gpu_max_cached_mem_GB=2.254, [valid] loss=1.604, l1_loss=1.006, duration_loss=0.019, seg_loss=0.579, time=15.63 seconds, total_count=1856, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.43 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:43:48,677 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:43:48,728 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/462epoch.pth, exp/rnn-dp-alf-beat_lab_2/463epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:43:48,728 (trainer:271) INFO: 465/500epoch started. Estimated time to finish: 1 hour, 41 minutes and 1.82 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:44:31,565 (trainer:710) INFO: 465epoch:train:1-10batch: iter_time=0.092, forward_time=3.963, loss=1.182, l1_loss=0.541, duration_loss=0.003, seg_loss=0.638, backward_time=0.127, optim_step_time=0.023, optim0_lr0=0.001, train_time=4.283
+[neptune_wyn_2245] 2022-10-16 07:45:13,167 (trainer:710) INFO: 465epoch:train:11-20batch: iter_time=2.130e-04, forward_time=3.966, loss=1.195, l1_loss=0.561, duration_loss=0.002, seg_loss=0.632, backward_time=0.133, optim_step_time=0.025, optim0_lr0=0.001, train_time=4.160
+[neptune_wyn_2245] 2022-10-16 07:45:59,629 (trainer:710) INFO: 465epoch:train:21-30batch: iter_time=1.508e-04, forward_time=4.444, loss=1.028, l1_loss=0.562, duration_loss=0.003, seg_loss=0.464, backward_time=0.154, optim_step_time=0.019, optim0_lr0=0.001, train_time=4.646
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:46:34,692 (trainer:330) INFO: 465epoch results: [train] iter_time=0.027, forward_time=4.028, loss=1.127, l1_loss=0.553, duration_loss=0.003, seg_loss=0.571, backward_time=0.136, optim_step_time=0.022, optim0_lr0=1.000e-03, train_time=4.257, time=2 minutes and 29.12 seconds, total_count=16275, gpu_max_cached_mem_GB=2.254, [valid] loss=1.606, l1_loss=1.011, duration_loss=0.020, seg_loss=0.576, time=15.62 seconds, total_count=1860, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.22 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:46:41,016 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:46:41,045 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/464epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:46:41,046 (trainer:271) INFO: 466/500epoch started. Estimated time to finish: 1 hour, 38 minutes and 13.73 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:47:22,039 (trainer:710) INFO: 466epoch:train:1-10batch: iter_time=0.128, forward_time=3.752, loss=1.157, l1_loss=0.549, duration_loss=0.003, seg_loss=0.605, backward_time=0.123, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.098
+[neptune_wyn_2245] 2022-10-16 07:48:07,630 (trainer:710) INFO: 466epoch:train:11-20batch: iter_time=1.922e-04, forward_time=4.356, loss=1.190, l1_loss=0.562, duration_loss=0.003, seg_loss=0.625, backward_time=0.151, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.559
+[neptune_wyn_2245] 2022-10-16 07:48:49,365 (trainer:710) INFO: 466epoch:train:21-30batch: iter_time=1.481e-04, forward_time=3.996, loss=1.025, l1_loss=0.554, duration_loss=0.003, seg_loss=0.468, backward_time=0.130, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.173
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:49:29,650 (trainer:330) INFO: 466epoch results: [train] iter_time=0.037, forward_time=4.009, loss=1.128, l1_loss=0.554, duration_loss=0.003, seg_loss=0.571, backward_time=0.135, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.245, time=2 minutes and 28.7 seconds, total_count=16310, gpu_max_cached_mem_GB=2.254, [valid] loss=1.614, l1_loss=1.016, duration_loss=0.020, seg_loss=0.578, time=18.29 seconds, total_count=1864, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.61 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:49:38,053 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:49:38,063 (trainer:271) INFO: 467/500epoch started. Estimated time to finish: 1 hour, 35 minutes and 25.97 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:50:26,761 (trainer:710) INFO: 467epoch:train:1-10batch: iter_time=0.142, forward_time=4.484, loss=1.218, l1_loss=0.561, duration_loss=0.003, seg_loss=0.655, backward_time=0.153, optim_step_time=0.021, optim0_lr0=0.001, train_time=4.869
+[neptune_wyn_2245] 2022-10-16 07:51:12,110 (trainer:710) INFO: 467epoch:train:11-20batch: iter_time=1.536e-04, forward_time=4.341, loss=1.010, l1_loss=0.554, duration_loss=0.002, seg_loss=0.454, backward_time=0.144, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.534
+[neptune_wyn_2245] 2022-10-16 07:51:46,868 (trainer:710) INFO: 467epoch:train:21-30batch: iter_time=1.177e-04, forward_time=3.314, loss=1.134, l1_loss=0.547, duration_loss=0.003, seg_loss=0.584, backward_time=0.114, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.475
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:52:26,466 (trainer:330) INFO: 467epoch results: [train] iter_time=0.041, forward_time=4.039, loss=1.130, l1_loss=0.556, duration_loss=0.003, seg_loss=0.571, backward_time=0.136, optim_step_time=0.020, optim0_lr0=1.000e-03, train_time=4.276, time=2 minutes and 29.78 seconds, total_count=16345, gpu_max_cached_mem_GB=2.254, [valid] loss=1.604, l1_loss=1.007, duration_loss=0.020, seg_loss=0.578, time=16.97 seconds, total_count=1868, gpu_max_cached_mem_GB=2.254, [att_plot] time=1.65 seconds, total_count=0, gpu_max_cached_mem_GB=2.254
+[neptune_wyn_2245] 2022-10-16 07:52:33,239 (trainer:376) INFO: There are no improvements in this epoch
+[neptune_wyn_2245] 2022-10-16 07:52:33,283 (trainer:432) INFO: The model files were removed: exp/rnn-dp-alf-beat_lab_2/466epoch.pth
+[neptune_wyn_2245] 2022-10-16 07:52:33,283 (trainer:271) INFO: 468/500epoch started. Estimated time to finish: 1 hour, 32 minutes and 38.04 seconds
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
+[neptune_wyn_2245] 2022-10-16 07:53:19,446 (trainer:710) INFO: 468epoch:train:1-10batch: iter_time=0.140, forward_time=4.228, loss=1.054, l1_loss=0.541, duration_loss=0.003, seg_loss=0.510, backward_time=0.155, optim_step_time=0.020, optim0_lr0=0.001, train_time=4.615
+[neptune_wyn_2245] 2022-10-16 07:53:58,188 (trainer:710) INFO: 468epoch:train:11-20batch: iter_time=1.725e-04, forward_time=3.700, loss=1.051, l1_loss=0.555, duration_loss=0.003, seg_loss=0.493, backward_time=0.127, optim_step_time=0.020, optim0_lr0=0.001, train_time=3.874
+# Accounting: time=78821 threads=1
+# Ended (code 137) at Sun Oct 16 07:55:12 UTC 2022, elapsed time 78821 seconds
+

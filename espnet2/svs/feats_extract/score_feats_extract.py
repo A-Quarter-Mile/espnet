@@ -218,6 +218,13 @@ class SyllableScoreFeats(AbsFeatsExtract):
             if midi[seq[-1]] != midi[i]:
                 seq.append(i)
         seq.append(midi_lengths.item())
+
+        seq.append(0)
+        for i in range(beat_lengths):
+            if beat[seq[-1]] != beat[i]:
+                seq.append(i)
+        seq.append(beat_lengths.item())
+
         seq = list(set(seq))
         seq.sort()
 

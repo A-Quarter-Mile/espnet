@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE score-partwise  PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="3.1">
+  <movement-title>Music21 Fragment</movement-title>
+  <identification>
+    <creator type="composer">Music21</creator>
+    <encoding>
+      <encoding-date>2022-10-11</encoding-date>
+      <software>music21 v.7.3.3</software>
+    </encoding>
+  </identification>
+  <defaults>
+    <scaling>
+      <millimeters>7</millimeters>
+      <tenths>40</tenths>
+    </scaling>
+  </defaults>
+  <part-list>
+    <score-part id="P051a87a087a8564ea85290525cd463d7">
+      <part-name />
+    </score-part>
+  </part-list>
+  <!--=========================== Part 1 ===========================-->
+  <part id="P051a87a087a8564ea85290525cd463d7">
+    <!--========================= Measure 1 ==========================-->
+    <measure number="1">
+      <attributes>
+        <divisions>10080</divisions>
+        <time>
+          <beats>4</beats>
+          <beat-type>4</beat-type>
+        </time>
+        <clef>
+          <sign>F</sign>
+          <line>4</line>
+        </clef>
+      </attributes>
+      <direction placement="above">
+        <direction-type>
+          <metronome parentheses="no">
+            <beat-unit>quarter</beat-unit>
+            <per-minute>100</per-minute>
+          </metronome>
+        </direction-type>
+        <sound tempo="100" />
+      </direction>
+      <note default-x="11.62" default-y="-15" dynamics="111.11">
+        <pitch>
+          <step>E</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>は</text>
+        </lyric>
+      </note>
+      <note default-x="58.8" default-y="-15" dynamics="111.11">
+        <pitch>
+          <step>E</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>よ</text>
+        </lyric>
+      </note>
+      <note default-x="105.97" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>さ</text>
+        </lyric>
+      </note>
+      <note default-x="153.15" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>き</text>
+        </lyric>
+      </note>
+      <note default-x="20.42" default-y="10" dynamics="111.11">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>た</text>
+        </lyric>
+      </note>
+      <note default-x="97.17" default-y="5" dynamics="111.11">
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>い</text>
+        </lyric>
+      </note>
+      <note default-x="145.15" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>と</text>
+        </lyric>
+      </note>
+    </measure>
+    <!--========================= Measure 2 ==========================-->
+    <measure number="2">
+      <note default-x="17.82" default-y="5" dynamics="111.11">
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <type>quarter</type>
+        <stem>down</stem>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>まっ</text>
+        </lyric>
+      </note>
+      <note default-x="105.64" default-y="5" dynamics="111.11">
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>て</text>
+        </lyric>
+      </note>
+      <note default-x="160.53" default-y="10" dynamics="111.11">
+        <pitch>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>4</octave>
+        </pitch>
+        <duration>5040</duration>
+        <type>eighth</type>
+        <accidental>sharp</accidental>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>い</text>
+        </lyric>
+      </note>
+      <note default-x="10.62" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>10080</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <stem>down</stem>
+        <notations>
+          <tied type="start" />
+        </notations>
+        <lyric default-x="6.58" default-y="-42.6" name="1" number="1" relative-y="-30">
+          <syllabic>single</syllabic>
+          <text>る</text>
+        </lyric>
+      </note>
+      <note default-x="79.09" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>3780</duration>
+        <tie type="stop" />
+        <tie type="start" />
+        <type>16th</type>
+        <dot />
+        <stem>down</stem>
+        <beam number="1">begin</beam>
+        <beam number="2">begin</beam>
+        <notations>
+          <tied type="stop" />
+          <tied type="start" />
+        </notations>
+      </note>
+      <note default-x="130.46" default-y="0" dynamics="111.11">
+        <pitch>
+          <step>A</step>
+          <octave>3</octave>
+        </pitch>
+        <duration>630</duration>
+        <tie type="stop" />
+        <type>64th</type>
+        <stem>down</stem>
+        <beam number="1">end</beam>
+        <beam number="2">end</beam>
+        <beam number="3">backward hook</beam>
+        <beam number="4">backward hook</beam>
+        <notations>
+          <tied type="stop" />
+        </notations>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>5040</duration>
+        <type>eighth</type>
+      </note>
+      <note print-object="no" print-spacing="yes">
+        <rest />
+        <duration>630</duration>
+        <type>64th</type>
+      </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+      </barline>
+    </measure>
+  </part>
+</score-partwise>

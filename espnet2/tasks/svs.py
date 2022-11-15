@@ -20,6 +20,10 @@ from espnet2.svs.feats_extract.score_feats_extract import (
 )
 from espnet2.svs.naive_rnn.naive_rnn import NaiveRNN
 from espnet2.svs.naive_rnn.naive_rnn_dp import NaiveRNNDP
+from espnet2.svs.naive_rnn.naive_rnn_dp_alf import NaiveRNNDPALF
+from espnet2.svs.xiaoice.XiaoiceSing import XiaoiceSing
+from espnet2.svs.xiaoice.XiaoiceSing_alf import XiaoiceSingALF
+from espnet2.svs.alf.alf import ALF
 from espnet2.tasks.abs_task import AbsTask
 from espnet2.train.class_choices import ClassChoices
 from espnet2.train.collate_fn import CommonCollateFn
@@ -105,6 +109,10 @@ svs_choices = ClassChoices(
         # bytesing=ByteSing,
         naive_rnn=NaiveRNN,
         naive_rnn_dp=NaiveRNNDP,
+        naive_rnn_dp_alf=NaiveRNNDPALF,
+        xiaoice=XiaoiceSing,
+        xiaoice_alf=XiaoiceSingALF,
+        alf=ALF,
         # mlp=MLPSinger,
         # xiaoice=XiaoiceSing,
         # xiaoice_noDP=XiaoiceSing_noDP,
@@ -153,6 +161,12 @@ class SVSTask(AbsTask):
 
         group.add_argument(
             "--token_list",
+            type=str_or_none,
+            default=None,
+            help="A text mapping int-id to token",
+        )
+        group.add_argument(
+            "--syb_token_list",
             type=str_or_none,
             default=None,
             help="A text mapping int-id to token",
@@ -258,6 +272,7 @@ class SVSTask(AbsTask):
                 train=train,
                 token_type=args.token_type,
                 token_list=args.token_list,
+                syb_token_list=args.syb_token_list,
                 bpemodel=args.bpemodel,
                 non_linguistic_symbols=args.non_linguistic_symbols,
                 text_cleaner=args.cleaner,
@@ -309,8 +324,20 @@ class SVSTask(AbsTask):
             token_list = args.token_list.copy()
         else:
             raise RuntimeError("token_list must be str or dict")
+        if isinstance(args.syb_token_list, str):
+            with open(args.syb_token_list, encoding="utf-8") as f:
+                syb_token_list = [line.rstrip() for line in f]
+
+            # "args" is saved as it is in a yaml file by BaseTask.main().
+            # Overwriting syb_token_list to keep it as "portable".
+            args.syb_token_list = syb_token_list.copy()
+        elif isinstance(args.syb_token_list, (tuple, list)):
+            syb_token_list = args.syb_token_list.copy()
+        else:
+            raise RuntimeError("syb_token_list must be str or dict")
 
         vocab_size = len(token_list)
+        vocab_size_syb = len(syb_token_list)
         logging.info(f"Vocabulary size: {vocab_size }")
 
         # 1. feats_extract
@@ -335,7 +362,7 @@ class SVSTask(AbsTask):
 
         # 3. SVS
         svs_class = svs_choices.get_class(args.svs)
-        svs = svs_class(idim=vocab_size, odim=odim, **args.svs_conf)
+        svs = svs_class(idim=vocab_size, syb_dim=vocab_size_syb, odim=odim, **args.svs_conf)
 
         # 4. Extra components
         score_feats_extract = None

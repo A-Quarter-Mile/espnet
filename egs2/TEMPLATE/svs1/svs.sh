@@ -91,7 +91,7 @@ inference_config="" # Config for decoding.
 inference_args=""   # Arguments for decoding, e.g., "--threshold 0.75".
                     # Note that it will overwrite args in inference config.
 inference_tag=""    # Suffix for decoding directory.
-inference_model=valid.loss.best.pth # Model path for decoding.
+inference_model=788epoch.pth # Model path for decoding.
                                    # e.g.
                                    # inference_model=train.loss.best.pth
                                    # inference_model=3epoch.pth
@@ -471,6 +471,17 @@ if ! "${skip_data_prep}"; then
               --add_symbol "${blank}:0" \
               --add_symbol "${oov}:1" \
               --add_symbol "${sos_eos}:-1"
+
+        ${python} -m espnet2.svs.tokenize.tokenize_syllable \
+              --token_type "${token_type}" -f 2- \
+              --input "${data_feats}/srctexts" --output "${token_list}_syb" \
+              --non_linguistic_symbols "${nlsyms_txt}" \
+              --cleaner "${cleaner}" \
+              --g2p "${g2p}" \
+              --write_vocabulary true \
+              --add_symbol "${blank}:0" \
+              --add_symbol "${oov}:1" \
+              --add_symbol "${sos_eos}:-1"
     fi
 else
     log "Skip the stages for data preparation"
@@ -589,6 +600,7 @@ if ! "${skip_train}"; then
                 --use_preprocessor true \
                 --token_type "${token_type}" \
                 --token_list "${token_list}" \
+                --syb_token_list "${token_list}_syb" \
                 --non_linguistic_symbols "${nlsyms_txt}" \
                 --cleaner "${cleaner}" \
                 --g2p "${g2p}" \
@@ -853,6 +865,7 @@ if ! "${skip_train}"; then
                 --use_preprocessor true \
                 --token_type "${token_type}" \
                 --token_list "${token_list}" \
+                --syb_token_list "${token_list}_syb" \
                 --non_linguistic_symbols "${nlsyms_txt}" \
                 --cleaner "${cleaner}" \
                 --g2p "${g2p}" \

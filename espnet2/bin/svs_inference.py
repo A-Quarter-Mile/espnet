@@ -93,6 +93,13 @@ class SingingGenerate:
         midi_xml: Optional[torch.Tensor] = None,
         tempo_xml: Optional[torch.Tensor] = None,
         beat_xml: Optional[torch.Tensor] = None,
+        syllable: Optional[torch.Tensor] = None,
+        syllable_num: Optional[torch.Tensor] = None,
+        syllable_lengths: Optional[torch.Tensor] = None,
+        label_xml_lengths: Optional[torch.Tensor] = None,
+        midi_syb: Optional[torch.Tensor] = None,
+        beat_syb: Optional[torch.Tensor] = None,
+        ds_syb: Optional[torch.Tensor] = None,
         pitch: Optional[torch.Tensor] = None,
         energy: Optional[torch.Tensor] = None,
         spembs: Union[torch.Tensor, np.ndarray] = None,
@@ -131,6 +138,16 @@ class SingingGenerate:
             batch.update(beat_lab=beat_lab)
         if beat_xml is not None:
             batch.update(beat_xml=beat_xml)
+        if beat_syb is not None:
+            batch.update(beat_syb=beat_syb)
+        if midi_syb is not None:
+            batch.update(midi_syb=midi_syb)
+        if syllable is not None:
+            batch.update(syllable=syllable)
+        if syllable_num is not None:
+            batch.update(syllable_num=syllable_num)
+        if ds_syb is not None:
+            batch.update(ds_syb=ds_syb)
         if energy is not None:
             batch.update(energy=energy)
         if spembs is not None:
