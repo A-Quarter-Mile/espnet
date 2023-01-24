@@ -1,7 +1,0 @@
-2022-10-21T09:37:08 (svs.sh:205:main) ./svs.sh --lang jp --stage 6 --stop_stage 9 --local_data_opts --stage 0 --feats_type raw --pitch_extract None --fs 24000 --fmax 7600 --fmin 80 --n_fft 2048 --n_shift 300 --win_length 1200 --token_type phn --g2p pyopenjtalk --cleaner none --train_config conf/tuning/train_xiaoice_alf.yaml --inference_config conf/decode.yaml --train_set tr_no_dev --valid_set dev --test_sets dev eval --score_feats_extract syllable_score_feats --srctexts data/tr_no_dev/text --svs_exp exp/xiaoice-alf_beat_lab_new --audio_format wav --vocoder_file /data1/wyn/Mus_data/vocoder/train_nodev_ofuton_hifigan.v1/checkpoint-300000steps.pkl
-2022-10-21T09:37:08 (svs.sh:647:main) Stage 6: SVS Training: train_set=dump/raw/tr_no_dev, valid_set=dump/raw/dev
-2022-10-21T09:37:08 (svs.sh:843:main) Generate 'exp/xiaoice-alf_beat_lab_new/run.sh'. You can resume the process from stage 6 using this script
-2022-10-21T09:37:08 (svs.sh:848:main) SVS training started... log: 'exp/xiaoice-alf_beat_lab_new/train.log'
-2022-10-21T11:24:51 (svs.sh:888:main) Stage 7: Decoding: training_dir=exp/xiaoice-alf_beat_lab_new
-2022-10-21T11:24:51 (svs.sh:928:main) Generate 'exp/xiaoice-alf_beat_lab_new/decode_743epoch/run.sh'. You can resume the process from stage 7 using this script
-2022-10-21T11:24:51 (svs.sh:983:main) Decoding started... log: 'exp/xiaoice-alf_beat_lab_new/decode_743epoch/dev/log/svs_inference.*.log'
